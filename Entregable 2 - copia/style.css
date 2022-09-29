@@ -269,32 +269,6 @@ nav {
     margin-left: 8px;
 }
 
-.account {
-    margin-top: 16px;
-    padding-right: 4%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.account .profile {
-    width: 40px;
-    height: 40px;
-    background-color: var(--color-secondary);
-    border-radius: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.account .profile svg {
-    fill: white;
-}
-
-.account .profile, .account h6 {
-    margin-bottom: 8px;
-}
-
 /* Logo */
 
 .logo {
@@ -447,14 +421,6 @@ footer {
         justify-content: space-between;
         z-index: 1;
         position: fixed;
-    }
-
-    .sidebar .account {
-        visibility: hidden;
-    }
-
-    .sidebar.open .account {
-        visibility: visible;
     }
 
     .sidebar {
