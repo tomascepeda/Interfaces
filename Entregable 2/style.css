@@ -65,6 +65,10 @@ h5 {
     font-size: var(--font-h5-size);
 }
 
+h6 {
+    font-size: var(--font-h6-size);
+}
+
 body {
     border: 0;
     background-color: var(--color-primary-shadow-2);
@@ -162,8 +166,7 @@ nav {
 }
 
 .searchbar {
-    margin-left: 8px;
-    display: none;
+    width: 100%;
     position: relative;
 }
 
@@ -182,7 +185,7 @@ nav {
 }
 
 .search-icon {
-    left: 85%;
+    left: 88%;
     transform-origin: center;
     cursor: pointer;
     position: absolute;
@@ -239,6 +242,7 @@ nav {
 }
 
 .sidebar.open {
+    max-width: 400px;
     left: 0;
 }
 
@@ -246,6 +250,7 @@ nav {
     display: flex;
     flex-direction: column;
     list-style: none;
+    margin: 8px 0;
 }
 
 .sidebar ul::before {
@@ -270,11 +275,12 @@ nav {
 }
 
 .account {
-    margin-top: 16px;
+    margin: 16px 0;
     padding-right: 4%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 230px;
 }
 
 .account .profile {
@@ -304,17 +310,14 @@ nav {
     justify-content: center;
 }
 
-.logo, .nav-hamburger-logo {
-    width: 100%;
-}
-
 .logo img {
-    margin-right: 10px;
+    margin: 0 10px;
 }
 
 .logo h5 {
     white-space: nowrap;
     color: white;
+    display: none;
     margin: 0;
     font-weight: bolder;
     text-shadow: #000 0px 0px 3px,   #000 0px 0px 3px,   #000 0px 0px 3px,
@@ -433,13 +436,33 @@ footer {
     background-color: var(--color-secondary-shadow-3);
 }
 
-@media (min-width: 940px) {
+/* Small */
+@media (min-width: 576px) {
+    .logo h5 {
+        display: block;
+    }
+
+    .searchbar {
+        margin-left: 8px;
+    }
+
+    .search-icon {
+        left: 90%;
+    }
+}
+
+/* Large */
+@media (min-width: 992px) {
     .container {
         padding: 80px 3%;
     }
 
     .logo, .nav-hamburger-logo {
         width: fit-content;
+    }
+
+    .logo img {
+        margin: 0 10px 0 0;
     }
 
     nav {
@@ -470,15 +493,8 @@ footer {
     }
 
     .sidebar.open {
-        width: 20%;
-    }
-
-    .sidebar ul:first-of-type {
-        margin-top: 16px;
-    }
-
-    .sidebar ul {
-        margin-bottom: 8px;
+        max-width: none;
+        width: 300px;
     }
 
     .close-sidebar-button {
@@ -495,6 +511,7 @@ footer {
     }
 
     .searchbar {
+        max-width: 200px;
         display: flex;
     }
 
@@ -505,6 +522,10 @@ footer {
     .logo {
         margin-left: 16px;
         justify-content: flex-start;
+    }
+
+    .sidebar ul li.d-none-lg {
+        display: none;
     }
 
     .carousel {
