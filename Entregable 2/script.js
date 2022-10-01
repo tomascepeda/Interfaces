@@ -9,6 +9,10 @@ function toggleNav() {
     let navBackground = document.querySelector("#sidebar-menu-background-js");
     navBackground.classList.toggle("open");
     navMenu.classList.toggle("open");
+    let svgs = document.querySelectorAll(".nav-hamburger svg");
+    svgs.forEach(svg => {
+        svg.classList.toggle("close-hamburger");
+    });
 }
 
 function loading() {
@@ -26,5 +30,5 @@ function loading() {
         document.getElementById("nav").classList.toggle("none");
         document.getElementById("main").classList.toggle("none");
         clearInterval(timeProgress);
-    }, 5000);
+    }, 0);
 }

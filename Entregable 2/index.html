@@ -20,11 +20,20 @@
 
     <nav class="none" id="nav">
         <div class="d-flex align-items-center nav-hamburger-logo">
-            <svg class="icon-h5 button-toggle-nav-menu-js cursor-pointer" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512">
-                <path
-                    d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
-            </svg>
+            <div class="nav-hamburger">
+                <svg class="icon-h5 button-toggle-nav-menu-js cursor-pointer" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path
+                        d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                </svg>
+                <svg class="icon-h5 button-toggle-nav-menu-js cursor-pointer close-hamburger" viewBox="0 0 50 50"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M47.7722 9.0625C49.6624 7.17237 49.6624 4.10282 47.7722 2.2127C45.8821 0.322575 42.8126 0.322575 40.9224 2.2127L25.0001 18.1502L9.06256 2.22782C7.17243 0.337695 4.10288 0.337695 2.21276 2.22782C0.322636 4.11794 0.322636 7.18749 2.21276 9.07761L18.1503 25L2.22788 40.9375C0.337757 42.8276 0.337757 45.8972 2.22788 47.7873C4.118 49.6774 7.18756 49.6774 9.07768 47.7873L25.0001 31.8498L40.9376 47.7722C42.8277 49.6623 45.8972 49.6623 47.7874 47.7722C49.6775 45.882 49.6775 42.8125 47.7874 40.9224L31.8499 25L47.7722 9.0625Z"
+                        fill="black" />
+                </svg>
+            </div>
+
             <a href="#" class="logo">
                 <img class="logo-icon icon-h5" src="images/favicon.png" alt="Logo">
                 <h5>The Games Suite</h5>
@@ -121,15 +130,24 @@
                     <span>Nuevo</span>
                 </li>
                 <li class="d-none-lg">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z"/></svg>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <path
+                            d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z" />
+                    </svg>
                     <span>Carrito</span>
                 </li>
                 <li class="d-none-lg">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path
+                            d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+                    </svg>
                     <span>Biblioteca</span>
                 </li>
                 <li class="d-none-lg">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path
+                            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                    </svg>
                     <span>Perfil</span>
                 </li>
             </ul>
@@ -204,7 +222,7 @@
                         <div class="card-label card-free-label">Gratuito</div>
                         <div class="card-title">4 en linea</div>
                         <div class="card-subtitle">Game of Thrones edition</div>
-                        <button class="btn btn-secondary">Jugar</button>
+                        <button class="btn btn-card btn-secondary">Jugar</button>
                     </li>
                     <li class="card">
                         <img class="card-image" src="images/games/mejores-juegos-2022-elden-ring-1638484425.jpeg"
@@ -212,7 +230,7 @@
                         <div class="card-label card-free-label">Gratuito</div>
                         <div class="card-title">4 en linea</div>
                         <div class="card-subtitle">Game of Thrones edition</div>
-                        <button class="btn btn-accent">Comprar xd</button>
+                        <button class="btn btn-card btn-accent">Comprar xd</button>
                     </li>
                     <li class="card">
                         <img class="card-image" src="images/games/mejores-juegos-2022-gran-turismo-7-1638484425.jpg"
@@ -220,7 +238,7 @@
                         <div class="card-label card-free-label">Gratuito</div>
                         <div class="card-title">4 en linea</div>
                         <div class="card-subtitle">Game of Thrones edition</div>
-                        <button class="btn btn-secondary">Jugar</button>
+                        <button class="btn btn-card btn-secondary">Jugar</button>
                     </li>
                     <li class="card">
                         <img class="card-image"
@@ -228,7 +246,7 @@
                         <div class="card-label card-free-label">Gratuito</div>
                         <div class="card-title">4 en linea</div>
                         <div class="card-subtitle">Game of Thrones edition</div>
-                        <button class="btn btn-secondary">Jugar</button>
+                        <button class="btn btn-card btn-secondary">Jugar</button>
                     </li>
                     <li class="card">
                         <img class="card-image" src="images/games/mejores-juegos-2022-lego-star-wars-1638484425.jpeg"
@@ -236,7 +254,7 @@
                         <div class="card-label card-free-label">Gratuito</div>
                         <div class="card-title">4 en linea</div>
                         <div class="card-subtitle">Game of Thrones edition</div>
-                        <button class="btn btn-secondary">Jugar</button>
+                        <button class="btn btn-card btn-secondary">Jugar</button>
                     </li>
                 </ul>
             </section>
@@ -250,7 +268,7 @@
                         <div class="card-label card-free-label">Gratuito</div>
                         <div class="card-title">4 en linea</div>
                         <div class="card-subtitle">Game of Thrones edition</div>
-                        <button class="btn btn-secondary">Jugar</button>
+                        <button class="btn btn-card btn-secondary">Jugar</button>
                     </li>
                     <li class="card">
                         <img class="card-image" src="images/games/kerbal-space-program-2-1638820027.jpg"
@@ -258,7 +276,7 @@
                         <div class="card-label card-free-label">Gratuito</div>
                         <div class="card-title">4 en linea</div>
                         <div class="card-subtitle">Game of Thrones edition</div>
-                        <button class="btn btn-secondary">Jugar</button>
+                        <button class="btn btn-card btn-secondary">Jugar</button>
                     </li>
                     <li class="card">
                         <img class="card-image" src="images/games/mejores-juegos-2022-elden-ring-1638484425.jpeg"
@@ -266,7 +284,7 @@
                         <div class="card-label card-free-label">Gratuito</div>
                         <div class="card-title">4 en linea</div>
                         <div class="card-subtitle">Game of Thrones edition</div>
-                        <button class="btn btn-secondary">Jugar</button>
+                        <button class="btn btn-card btn-secondary">Jugar</button>
                     </li>
                     <li class="card">
                         <img class="card-image" src="images/games/mejores-juegos-2022-gothamknights-1638484427.jpg"
@@ -274,7 +292,7 @@
                         <div class="card-label card-free-label">Gratuito</div>
                         <div class="card-title">4 en linea</div>
                         <div class="card-subtitle">Game of Thrones edition</div>
-                        <button class="btn btn-secondary">Jugar</button>
+                        <button class="btn btn-card btn-secondary">Jugar</button>
                     </li>
                     <li class="card">
                         <img class="card-image"
@@ -282,7 +300,7 @@
                         <div class="card-label card-free-label">Gratuito</div>
                         <div class="card-title">4 en linea</div>
                         <div class="card-subtitle">Game of Thrones edition</div>
-                        <button class="btn btn-secondary">Jugar</button>
+                        <button class="btn btn-card btn-secondary">Jugar</button>
                     </li>
                 </ul>
             </section>

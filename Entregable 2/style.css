@@ -205,6 +205,13 @@ nav {
     max-height: 16px;
 }
 
+.nav-hamburger svg:first-of-type{
+    position: absolute;
+}
+
+.nav-hamburger svg.close-hamburger {
+    visibility: hidden;
+}
 
 /* Sidebar */
 
@@ -420,14 +427,17 @@ footer {
 .btn {
     color: white;
     border: 0;
-    width: 93%;
-    height: var(--card-button-height);
     border-radius: var(--border-radius-button);
-    margin: 2% 3.5% 3.5% 3.5%;
     font-size: var(--font-paragraph-size);
     box-shadow: 1px 5px 10px var(--color-primary-shadow-1);
     cursor: pointer;
     transition: all 0.5s ease;
+}
+
+.btn-card {
+    width: 93%;
+    height: var(--card-button-height);
+    margin: 2% 3.5% 3.5% 3.5%;
 }
 
 .btn:hover,
