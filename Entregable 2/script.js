@@ -30,7 +30,7 @@ function loading() {
         document.getElementById("nav").classList.toggle("none");
         document.getElementById("main").classList.toggle("none");
         clearInterval(timeProgress);
-    }, 0);
+    }, 5000);
 }
 
 function loadScrolls() {

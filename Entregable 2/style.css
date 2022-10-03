@@ -5,6 +5,7 @@
     padding: 0;
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
+    list-style: none;
 }
 
 :root {
@@ -33,6 +34,8 @@
     --color-accent-light-1: #EA80FC;
     --color-accent-light-2: #E040FB;
     --color-accent-light-3: #D500F9;
+
+    --color-estreno-primary: #F27BFC;
 
     /* Fonts */
     --font-h1-size: 42px;
@@ -69,6 +72,30 @@
     visibility: hidden;
 }
 
+.text-center {
+    text-align: center;
+}
+
+p {
+    font-size: var(--font-paragraph-size);
+}
+
+h1 {
+    font-size: var(--font-h1-size);
+}
+
+h2 {
+    font-size: var(--font-h2-size);
+}
+
+h3 {
+    font-size: var(--font-h3-size);
+}
+
+h4 {
+    font-size: var(--font-h4-size);
+}
+
 h5 {
     font-size: var(--font-h5-size);
 }
@@ -101,8 +128,16 @@ main {
     flex-direction: row;
 }
 
+.w-25 {
+    width: 25%;
+}
+
 .w-100 {
     width: 100%;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
 }
 
 .justify-content-center {
@@ -117,8 +152,28 @@ main {
     display: flex;
 }
 
+.flex-column {
+    flex-direction: column;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
 .mb-3 {
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
 }
 
 .btn-nav {
@@ -1047,4 +1102,168 @@ button:active {
 .user-share h6 {
     margin: 0;
     margin-left: 15px;
+}
+
+
+/* Estreno */
+
+body.estreno {
+    background-color: #000000;
+    color: white;
+}
+
+body.estreno section {
+    margin-bottom: 13%;
+}
+
+.estreno-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.estreno-info > img, .estreno-info > div {
+    width: 49%;
+}
+
+body.estreno .estreno-info div > *, body.estreno .reserve-detail > * {
+    margin-bottom: 16px;
+}
+
+body.estreno .card {
+    width: 32.5%;
+    background-color: #0B0B0B;
+    border-radius: 10px;
+    overflow: hidden;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+body.estreno .card .content {
+    padding: 40px;
+}
+
+body.estreno .card .img {
+    position: relative;
+    height: 30%;
+}
+
+body.estreno .card .img img, body.estreno .characters .character-card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+body.estreno .card .img::before {
+    content: '';
+    position: absolute;
+    top: 70%;
+    height: 30%;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0B0B0B 100%);
+}
+
+body.estreno .card ul li {
+    color: #797979;
+    margin-bottom: 8px;
+}
+
+body.estreno .card h6 {
+    margin-bottom: 16px;
+}
+
+body.estreno .characters .character-card {
+    position: relative;
+    min-height: 75vh;
+    max-height: 75vh;
+    min-width: 20vw;
+    margin: 0 8px;
+    border: 2px solid var(--color-estreno-primary);
+}
+
+body.estreno .characters .character-card:first-of-type {
+    margin: 0 8px 0 0;
+}
+
+body.estreno .characters .character-card:last-of-type {
+    margin: 0 0 0 8px;
+}
+
+body.estreno .characters .character-card span {
+    position: absolute;
+    font-size: 40px;
+    font-family: 'Playball', 'Open Sans', sans-serif;
+    text-align: center;
+    top: 80%;
+    white-space: nowrap;
+    left: 0;
+    width: 100%;
+    -webkit-text-stroke: 2px var(--color-estreno-primary);
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+body.estreno .reserve .center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+body.estreno .reserve ul li {
+    list-style-type: disc;
+    margin-left: 1em;
+}
+
+body.estreno .reserve button {
+    width: 100%;
+    text-align: center;
+    color: var(--color-estreno-primary);
+    background-color: transparent;
+    border: 3px solid var(--color-estreno-primary);
+    padding: 16px 0;
+    font-weight: bold;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+body.estreno .reserve button:hover {
+    background-color: var(--color-estreno-primary);
+    color: #000000;
+}
+
+body.estreno .reserve .center div > img {
+    height: 100%;
+    width: 100%;
+}
+
+body.estreno .reserve .center div {
+    height: 20vh;
+    width: auto;
+}
+
+body.estreno .reserve > img {
+    width: 39%;
+}
+
+body.estreno .reserve > div {
+    width: 59%;
+}
+
+body.estreno .reserve .reserve-detail {
+    margin-top: auto;
+}
+
+@media (min-width: 1400px) {
+    body.estreno .characters .character-card span {
+        font-size: 50px;
+    }
+
+    body.estreno .reserve .center div {
+        height: 25vh;
+        width: auto;
+    }
+}
+
+@media (min-width: 1800px) {
+    body.estreno .characters .character-card span {
+        font-size: 60px;
+    }
 }
