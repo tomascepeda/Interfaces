@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+    loading();
     let buttonsToggleNavMenu = document.querySelectorAll(".button-toggle-nav-menu-js");
     buttonsToggleNavMenu.forEach(button => button.addEventListener("click", toggleNav));
-    loading();
+    loadScrolls();
 });
 
 function toggleNav() {
@@ -16,11 +17,10 @@ function toggleNav() {
 }
 
 function loading() {
-    
     let progress = document.getElementById("progress");
     let i = 0;
     let timeProgress = setInterval(() => {
-        if(i <= 100)
+        if (i <= 100)
             progress.innerHTML = i++ + "%";
     }, 48);
 
@@ -31,4 +31,42 @@ function loading() {
         document.getElementById("main").classList.toggle("none");
         clearInterval(timeProgress);
     }, 0);
+}
+
+function loadScrolls() {
+    let previousBtns = document.querySelectorAll(".carousel-previous");
+    let nextBtns = document.querySelectorAll(".carousel-next");
+    previousBtns.forEach(btn => {
+        btn.addEventListener("click", () => scrollLeft(btn));
+    });
+    nextBtns.forEach(btn => {
+        btn.addEventListener("click", () => scrollRight(btn));
+    });
+}
+
+function scrollLeft(btn) {
+    let carousel = btn.parentElement.nextElementSibling;
+    btn.nextElementSibling.classList.remove("invisible");
+    if (carousel.scrollLeft == 0) {
+        btn.classList.add("invisible");
+    }
+    carousel.scroll({
+        left: carousel.scrollLeft - document.querySelector(".carousel .card").clientWidth,
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+function scrollRight(btn) {
+    let carousel = btn.parentElement.nextElementSibling;
+    let maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    btn.previousElementSibling.classList.remove("invisible");
+    if (carousel.scrollLeft >= maxScroll) {
+        btn.classList.add("invisible");
+    }
+    carousel.scroll({
+        left: carousel.scrollLeft + document.querySelector(".carousel .card").clientWidth,
+        top: 0,
+        behavior: 'smooth'
+    });
 }
