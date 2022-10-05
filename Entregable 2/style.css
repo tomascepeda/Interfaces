@@ -53,7 +53,7 @@
     /* Cards */ 
     --card-width: 300px;
     --card-height: 30%;
-    --card-image-height: 52%;
+    --card-image-height: 185px;
     --card-label-height: 8%;
     --card-button-height: 12%;
 
@@ -65,7 +65,7 @@
 /* Global */
 
 .none {
-    display: none;
+    display: none !important;
 }
 
 .invisible {
@@ -128,8 +128,16 @@ main {
     flex-direction: row;
 }
 
+.overflow-hidden {
+    overflow: hidden;
+}
+
 .w-25 {
     width: 25%;
+}
+
+.w-50 {
+    width: 50%;
 }
 
 .w-100 {
@@ -401,11 +409,94 @@ nav {
 /* Footer */
 
 footer {
-    height: 422px;
+    display: flex;
+    flex-direction: column;
     background-color: var(--color-primary-shadow-1);
+    color: white;
 }
 
+footer article{
+    display: flex;
+    justify-content: space-around;
+    height: 380px;
+}
 
+footer h6 {
+    margin: 20px auto;
+}
+
+footer li {
+    margin: 5px auto;
+    display: flex;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-social svg {
+    margin: auto 10px;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 280px;
+}
+
+.footer-logo ul li svg {
+    margin-top: 5px;
+    margin-right: 15px;
+    fill: white;
+}
+
+.footer-logo ul li {
+    margin: 20px auto;
+}
+
+.footer-svg-logo {
+    width: 210px;
+    height: 100px;
+    margin: 20px auto;
+}
+
+.footer-icon {
+    width: 50px;
+    height: 50px;
+    margin: 20px auto;
+}
+
+.footer-actions {
+    justify-content: space-between;
+    padding: 0 20px 20px 20px;
+}
+
+.footer-actions p {
+    justify-content: flex-end;
+    align-self: flex-end;
+}
+
+.footer-actions button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    border-radius: var(--border-radius-button);
+    background-color: var(--color-primary-light-3);
+    cursor: pointer;
+}
+
+.footer-actions button svg {
+    fill: white;
+    width: 80%;
+    height: 80%;
+    transform: rotate(-90deg);
+}
 
 /* ----- Cards ----- */
 
@@ -499,6 +590,19 @@ footer {
     box-shadow: var(--shadow-button);
     cursor: pointer;
     transition: background-position 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn svg {
+    width: 30px;
+    height: 20px;
+    margin: 0;
+    margin-right: 10px;
+    padding: 0;
+    border: 0;
+    fill: white;
 }
 
 .card .btn {
@@ -542,6 +646,18 @@ button:active {
 
 .btn-primary:hover {
     background-position: right bottom;
+}
+
+.btn-primary-card {
+    padding: 0.7em 1.5em;
+    border: none;
+    background: linear-gradient(to bottom, var(--color-primary-shadow-1) 50%, var(--color-primary) 50%);
+    background-size: 100% 200%;
+    background-position: left bottom;
+}
+
+.btn-primary-card:hover {
+    background-position: right top;
 }
 
 .btn-secondary {
@@ -768,7 +884,6 @@ button:active {
     flex-direction: column;
     margin: 2%;
     background-color: var(--color-primary);
-    width: 100%;
     border-radius: var(--border-radius-card);
 }
 
@@ -777,16 +892,15 @@ button:active {
     flex-direction: row;
     padding: 20px;
     justify-content: space-between;
-    align-items: center;
 }
 
 .breadcrumb {
     display: flex;
-    align-self: flex-start;
-    justify-content: space-evenly;
     align-items: center;
-    width: 350px;
-    height: 100%;
+}
+
+.breadcrumb * {
+    margin-right: 8px;
 }
 
 .breadcrumb a {
@@ -824,6 +938,7 @@ button:active {
     fill: white;
     width: 60%;
     height: 60%;
+    margin: 0;
 }
 
 .game-section {
