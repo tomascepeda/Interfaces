@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     loading();
+    loadScrolls();
     let buttonsToggleNavMenu = document.querySelectorAll(".button-toggle-nav-menu-js");
     buttonsToggleNavMenu.forEach(button => button.addEventListener("click", toggleNav));
-    loadScrolls();
+    document.getElementById("auto-scroll-top").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 });
 
 function toggleNav() {
@@ -45,27 +48,29 @@ function loadScrolls() {
 }
 
 function scrollLeft(btn) {
+    let cardWidth = document.querySelector(".carousel .card").clientWidth;
     let carousel = btn.parentElement.nextElementSibling;
     btn.nextElementSibling.classList.remove("invisible");
-    if (carousel.scrollLeft == 0) {
+    if (carousel.scrollLeft <= (0 + cardWidth)) {
         btn.classList.add("invisible");
     }
     carousel.scroll({
-        left: carousel.scrollLeft - document.querySelector(".carousel .card").clientWidth,
+        left: carousel.scrollLeft - cardWidth,
         top: 0,
         behavior: 'smooth'
     });
 }
 
 function scrollRight(btn) {
+    let cardWidth = document.querySelector(".carousel .card").clientWidth;
     let carousel = btn.parentElement.nextElementSibling;
     let maxScroll = carousel.scrollWidth - carousel.clientWidth;
     btn.previousElementSibling.classList.remove("invisible");
-    if (carousel.scrollLeft >= maxScroll) {
+    if (carousel.scrollLeft >= (maxScroll - cardWidth)) {
         btn.classList.add("invisible");
     }
     carousel.scroll({
-        left: carousel.scrollLeft + document.querySelector(".carousel .card").clientWidth,
+        left: carousel.scrollLeft + cardWidth,
         top: 0,
         behavior: 'smooth'
     });
