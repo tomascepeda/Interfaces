@@ -51,11 +51,11 @@ function scrollLeft(btn) {
     let cardWidth = document.querySelector(".carousel .card").clientWidth;
     let carousel = btn.parentElement.nextElementSibling;
     btn.nextElementSibling.classList.remove("invisible");
-    if (carousel.scrollLeft <= (0 + cardWidth)) {
+    if (carousel.scrollLeft <= (cardWidth * 3)) {
         btn.classList.add("invisible");
     }
     carousel.scroll({
-        left: carousel.scrollLeft - cardWidth,
+        left: carousel.scrollLeft - (cardWidth * 3),
         top: 0,
         behavior: 'smooth'
     });
@@ -66,11 +66,11 @@ function scrollRight(btn) {
     let carousel = btn.parentElement.nextElementSibling;
     let maxScroll = carousel.scrollWidth - carousel.clientWidth;
     btn.previousElementSibling.classList.remove("invisible");
-    if (carousel.scrollLeft >= (maxScroll - cardWidth)) {
+    if (carousel.scrollLeft >= (maxScroll - cardWidth * 3)) {
         btn.classList.add("invisible");
     }
     carousel.scroll({
-        left: carousel.scrollLeft + cardWidth,
+        left: carousel.scrollLeft + (cardWidth * 3),
         top: 0,
         behavior: 'smooth'
     });
