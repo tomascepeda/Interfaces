@@ -4,9 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
     loadCarouselsPageables();
     let buttonsToggleNavMenu = document.querySelectorAll(".button-toggle-nav-menu-js");
     buttonsToggleNavMenu.forEach(button => button.addEventListener("click", toggleNav));
-    document.getElementById("auto-scroll-top").addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    let autoScrollBtn = document.getElementById("auto-scroll-top");
+    if (autoScrollBtn) {
+        autoScrollBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });
 
 let id = makeCounter();
@@ -26,19 +29,24 @@ function toggleNav() {
 
 function loading() {
     let progress = document.getElementById("progress");
-    let i = 0;
-    let timeProgress = setInterval(() => {
-        if (i <= 100)
-            progress.innerHTML = i++ + "%";
-    }, 48);
+    if (progress) {
+        let i = 0;
+        let timeProgress = setInterval(() => {
+            if (i <= 100)
+                progress.innerHTML = i++ + "%";
+        }, 48);
 
-    setTimeout(() => {
-        document.getElementById("loading").classList.toggle("loading");
-        document.getElementById("loading").classList.add("none");
-        document.getElementById("nav").classList.toggle("none");
-        document.getElementById("main").classList.toggle("none");
-        clearInterval(timeProgress);
-    }, 0);
+        setTimeout(() => {
+            let loading = document.getElementById("loading");
+            if (loading) {
+                loading.classList.toggle("loading");
+                loading.classList.add("none");
+                document.getElementById("nav").classList.toggle("none");
+                document.getElementById("main").classList.toggle("none");
+                clearInterval(timeProgress);
+            }
+        }, 5000);
+    }
 }
 
 function loadScrolls() {
@@ -99,7 +107,6 @@ function insertAfter(newNode, referenceNode) {
 }
 
 function onClickPage(pageNum, carousel, interval = false) {
-    console.log(carousel.getAttribute("id"));
     if (interval)
         clearInterval(interval);
     let amountPages = getAmountPages(carousel);
@@ -140,11 +147,11 @@ function scrollLeft(btn) {
         onClickPage(getPreviousPage(carousel), carousel, carouselInterval);
     } else {
         btn.nextElementSibling.classList.remove("invisible");
-        if (carousel.scrollLeft <= (0 + cardWidth)) {
+        if (carousel.scrollLeft <= (cardWidth * 3)) {
             btn.classList.add("invisible");
         }
         carousel.scroll({
-            left: carousel.scrollLeft - cardWidth,
+            left: carousel.scrollLeft - (cardWidth * 3),
             top: 0,
             behavior: 'smooth'
         });
@@ -160,11 +167,11 @@ function scrollRight(btn) {
     } else {
         let maxScroll = carousel.scrollWidth - carousel.clientWidth;
         btn.previousElementSibling.classList.remove("invisible");
-        if (carousel.scrollLeft >= (maxScroll - cardWidth)) {
+        if (carousel.scrollLeft >= (maxScroll - cardWidth * 3)) {
             btn.classList.add("invisible");
         }
         carousel.scroll({
-            left: carousel.scrollLeft + cardWidth,
+            left: carousel.scrollLeft + (cardWidth * 3),
             top: 0,
             behavior: 'smooth'
         });

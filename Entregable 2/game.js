@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+    loadCanvas();
     commentsCounter();
     document.getElementById("add-comment").addEventListener("click", () => {
         document.getElementById("submit-comment").classList.remove("none");
     });
     document.querySelector(".community-content form").addEventListener("submit", addComment);
+    document.getElementById("start-game").addEventListener("click", startGame);
 });
 
 function addComment(e) {
@@ -24,4 +26,16 @@ function commentsCounter() {
     let counter = document.getElementById("comments-counter");
     let items = document.querySelectorAll(".community-comments ul li");
     counter.innerHTML = items.length + " Comentarios";
+}
+
+function startGame() {
+    document.querySelector(".game-instructions").classList.add("none")
+}
+
+function loadCanvas() {
+    let canvas = document.getElementById("canvas-game");
+    let ctx = canvas.getContext("2d");
+    let backgroundImage = new Image();
+    backgroundImage.onload = () => {ctx.drawImage(backgroundImage, 0, 0, canvas.clientWidth, canvas.clientHeight)}
+    backgroundImage.src = "./images/gameplay/connect-4-rules.jpg";
 }
