@@ -1,12 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
     loading();
     loadScrolls();
+    loadCarouselsPageables();
     let buttonsToggleNavMenu = document.querySelectorAll(".button-toggle-nav-menu-js");
     buttonsToggleNavMenu.forEach(button => button.addEventListener("click", toggleNav));
     document.getElementById("auto-scroll-top").addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 });
+
+let id = makeCounter();
+let autoScrollInterval = 3000;
+let carouselIntervals = new Map();
 
 function toggleNav() {
     let navMenu = document.querySelector("#sidebar-js");
@@ -47,31 +52,133 @@ function loadScrolls() {
     });
 }
 
-function scrollLeft(btn) {
-    let cardWidth = document.querySelector(".carousel .card").clientWidth;
-    let carousel = btn.parentElement.nextElementSibling;
-    btn.nextElementSibling.classList.remove("invisible");
-    if (carousel.scrollLeft <= (0 + cardWidth)) {
-        btn.classList.add("invisible");
+function loadCarouselsPageables() {
+    let carousels = document.querySelectorAll(".carousel-pageable");
+    setTimeout(() => {
+        carousels.forEach(carousel => {
+            let carouselId = id();
+            carousel.setAttribute("value", 0);
+            carousel.setAttribute("id", carouselId);
+            let countPages = getAmountPages(carousel);
+            let carouselPagesDiv = document.createElement("div");
+            carouselPagesDiv.className = "carousel-pages";
+            let intervalAutoScroll = setInterval(() => autoScroll(carousel), autoScrollInterval);
+            carouselIntervals.set(carouselId, intervalAutoScroll);
+            for (let i = 0; i < countPages; i++) {
+                let div = document.createElement("div");
+                div.setAttribute("value", i);
+                if (i == 0)
+                    div.className = "active";
+                carouselPagesDiv.appendChild(div);
+                div.addEventListener("click", () => onClickPage(i, carousel, intervalAutoScroll))
+            }
+            carousel.parentNode.insertBefore(carouselPagesDiv, carousel.nextSibling);
+        });
+    }, 1);
+}
+
+function makeCounter() {
+    var i = 0;
+    return function() {
+        return i++;
     }
+}
+
+function autoScroll(carousel) {
+    let amountPages = getAmountPages(carousel) -1;
+    let currentPage = parseInt(carousel.getAttribute("value"));
+    if (amountPages == currentPage) 
+        onClickPage(0, carousel);
+    else
+        onClickPage(currentPage+1, carousel);
+        
+}
+
+function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+function onClickPage(pageNum, carousel, interval = false) {
+    console.log(carousel.getAttribute("id"));
+    if (interval)
+        clearInterval(interval);
+    let amountPages = getAmountPages(carousel);
+    let btnPrevious = carousel.previousElementSibling.querySelector(".carousel-previous");
+    let btnNext = carousel.previousElementSibling.querySelector(".carousel-next");
+    btnPrevious.classList.remove("invisible");
+    btnNext.classList.remove("invisible");
+    if (pageNum == 0) {
+        btnPrevious.classList.add("invisible");
+    }
+    if ((amountPages -1) == pageNum) {
+        btnNext.classList.add("invisible");
+    }
+    carousel.setAttribute("value", pageNum);
+    let scroll = carousel.clientWidth * pageNum;
+    let pages = Array.from(carousel.nextElementSibling.children);
+    pages.forEach((page, i) => {
+        page.classList.remove("active");
+        if (i == pageNum)
+            page.classList.add("active");
+    })
     carousel.scroll({
-        left: carousel.scrollLeft - cardWidth,
+        left: scroll,
         top: 0,
         behavior: 'smooth'
     });
 }
 
+function isPageableCarousel(carousel) {
+    return carousel.classList.contains("carousel-pageable");
+}
+
+function scrollLeft(btn) {
+    let cardWidth = document.querySelector(".carousel .card").clientWidth;
+    let carousel = btn.parentElement.nextElementSibling;
+    if (isPageableCarousel(carousel)) {
+        let carouselInterval = carouselIntervals.get(parseInt(carousel.getAttribute("id")));
+        onClickPage(getPreviousPage(carousel), carousel, carouselInterval);
+    } else {
+        btn.nextElementSibling.classList.remove("invisible");
+        if (carousel.scrollLeft <= (0 + cardWidth)) {
+            btn.classList.add("invisible");
+        }
+        carousel.scroll({
+            left: carousel.scrollLeft - cardWidth,
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+}
+
 function scrollRight(btn) {
     let cardWidth = document.querySelector(".carousel .card").clientWidth;
     let carousel = btn.parentElement.nextElementSibling;
-    let maxScroll = carousel.scrollWidth - carousel.clientWidth;
-    btn.previousElementSibling.classList.remove("invisible");
-    if (carousel.scrollLeft >= (maxScroll - cardWidth)) {
-        btn.classList.add("invisible");
+    if (isPageableCarousel(carousel)) {
+        let carouselInterval = carouselIntervals.get(parseInt(carousel.getAttribute("id")));
+        onClickPage(getNextPage(carousel), carousel, carouselInterval);
+    } else {
+        let maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        btn.previousElementSibling.classList.remove("invisible");
+        if (carousel.scrollLeft >= (maxScroll - cardWidth)) {
+            btn.classList.add("invisible");
+        }
+        carousel.scroll({
+            left: carousel.scrollLeft + cardWidth,
+            top: 0,
+            behavior: 'smooth'
+        });
     }
-    carousel.scroll({
-        left: carousel.scrollLeft + cardWidth,
-        top: 0,
-        behavior: 'smooth'
-    });
+}
+
+function getAmountPages(carousel) {
+    return Math.ceil(carousel.scrollWidth / carousel.clientWidth)
+}
+
+function getNextPage(carousel) {
+    return parseInt(carousel.getAttribute("value"))+1;
+}
+
+function getPreviousPage(carousel) {
+    return parseInt(carousel.getAttribute("value"))-1;
 }
