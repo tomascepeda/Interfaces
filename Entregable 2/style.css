@@ -613,21 +613,25 @@ footer button svg {
 .carousel-pages {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     margin-top: 16px;
 }
 
 .carousel-pages div {
     margin: 0 5px;
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     background-color: var(--color-secondary-shadow-1);
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
 .carousel-pages div.active {
     background-color: var(--color-secondary);
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
 }
 
 .card-label {
@@ -1458,6 +1462,10 @@ body.estreno .card .img img, body.estreno .characters .character-card img {
     object-fit: cover;
 }
 
+body.estreno .characters .character-card img {
+    transition: all .3s;
+}
+
 body.estreno .card .img::before {
     content: '';
     position: absolute;
@@ -1511,10 +1519,18 @@ body.estreno .card.character-card:hover span {
 }
 
 .character-hover{
-    display: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all .3s;
+    position: absolute;
 }
 
-body.estreno .card.character-card:hover .character-hover{
+.character-hover:hover {
+    opacity: 1;
+}
+
+body.estreno .card.character-card .character-hover{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -1527,7 +1543,7 @@ body.estreno .card.character-card:hover .character-hover{
 
 .character-hover h6 {
     font-weight: normal;
-    font-size: 50px;
+    font-size: 35px;
     font-family: 'Playball', 'Open Sans', sans-serif;
     text-align: center;
     width: 100%;
@@ -1535,11 +1551,15 @@ body.estreno .card.character-card:hover .character-hover{
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+body.estreno .characters .character-card:hover img {
+    height: 140%;
+}
+
 .character-hover p {
     width: 90%;
     text-align: center;
     color: var(--color-estreno-primary);
-    font-size: 25px;
+    font-size: 16px;
 }
 
 body.estreno .reserve .center {
@@ -1726,6 +1746,14 @@ body.estreno .carousel-pages div.active {
 }
 
 @media (min-width: 1400px) {
+    .character-hover h6 {
+        font-size: 50px;
+    }
+
+    .character-hover p {
+        font-size: 25px;
+    }
+
     body.estreno .characters .character-card span {
         font-size: 50px;
     }
