@@ -6,6 +6,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     document.querySelector(".community-content form").addEventListener("submit", addComment);
     document.getElementById("start-game").addEventListener("click", startGame);
+    let btnCommunity = document.querySelector("#btn-community");
+    btnCommunity.addEventListener("click", () => {
+        let divComunity = document.querySelector("#comunity-js");
+        divComunity.scrollIntoView({ behavior: 'smooth' });
+    });
+    let btnShare = document.querySelector("#btn-share");
+    let modal = document.querySelector("#modal-js");
+    btnShare.addEventListener("click", () => {
+        modal.classList.add("open");
+    });
+    let btnCloseModal = document.querySelector("#close-modal-js");
+    btnCloseModal.addEventListener("click", () => modal.classList.remove("open"));
+    modal.addEventListener("click", (e) => {
+        if (e.target.classList.contains("modal-share"))
+            modal.classList.remove("open")
+    });
 });
 
 function addComment(e) {

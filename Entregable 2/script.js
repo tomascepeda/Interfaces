@@ -2,14 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
     loading();
     loadScrolls();
     loadCarouselsPageables();
+    loadAccordions();
     let buttonsToggleNavMenu = document.querySelectorAll(".button-toggle-nav-menu-js");
     buttonsToggleNavMenu.forEach(button => button.addEventListener("click", toggleNav));
-    let autoScrollBtn = document.getElementById("auto-scroll-top");
-    if (autoScrollBtn) {
+    let autoScrollBtns = document.querySelectorAll(".auto-scroll-top");
+    autoScrollBtns.forEach(autoScrollBtn => {
         autoScrollBtn.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    }
+    });
 });
 
 let id = makeCounter();
@@ -45,7 +46,7 @@ function loading() {
                 document.getElementById("main").classList.toggle("none");
                 clearInterval(timeProgress);
             }
-        }, 5000);
+        }, 0);
     }
 }
 
@@ -188,4 +189,15 @@ function getNextPage(carousel) {
 
 function getPreviousPage(carousel) {
     return parseInt(carousel.getAttribute("value"))-1;
+}
+
+function loadAccordions() {
+    let accordions = document.querySelectorAll(".accordion-header");
+    accordions.forEach(accordionHeader => {
+        accordionHeader.addEventListener("click", () => {
+            let accordionContent = accordionHeader.nextElementSibling;
+            accordionHeader.classList.toggle("open");
+            accordionContent.classList.toggle("open");
+        });
+    });
 }

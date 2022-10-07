@@ -152,6 +152,10 @@ main {
     justify-content: space-between;
 }
 
+.justify-content-space-around {
+    justify-content: space-around;
+}
+
 .justify-content-center {
     justify-content: center;
 }
@@ -166,6 +170,10 @@ main {
 
 .flex-column {
     flex-direction: column;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
 }
 
 .mt-auto {
@@ -204,6 +212,7 @@ main {
 /* Nav*/
 
 nav {
+    z-index: 10;
     width: 100%;
     padding: 8px 3%;
     display: flex;
@@ -291,6 +300,7 @@ nav {
 /* Sidebar */
 
 .sidebar {
+    z-index: 4;
     position: fixed;
     width: 80%;
     left: -80%;
@@ -304,13 +314,17 @@ nav {
     background-color: var(--color-primary-shadow-3);
 }
 
+.background-sidebar-menu, .modal-share {
+    background-color: rgba(0, 0, 0, 0.699);
+}
+
 .background-sidebar-menu {
+    z-index: 3;
     position: fixed;
     top: 0;
     left: -100%;
     min-width: 100%;
     min-height: 100%;
-    background-color: rgba(0, 0, 0, 0.699);
     opacity: 0;
     transition: opacity 300ms;
 }
@@ -423,23 +437,48 @@ nav {
     background-color: var(--color-primary-shadow-3);
 }
 
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.accordion-header div {
+    transition: transform .3s ease;
+}
+
+.accordion-header.open div {
+    transform: rotate(90deg);
+}
+
+.accordion-content {
+    display: none;
+    overflow: hidden;
+}
+
+.accordion-content.open {
+    display: block;
+}
+
 /* Footer */
 
 footer {
+    padding: 16px 3%;
     display: flex;
     flex-direction: column;
     background-color: var(--color-primary-shadow-1);
     color: white;
 }
 
+footer .accordion-content, footer .accordion-header {
+    margin-top: 16px;
+}
+
 footer article{
     display: flex;
     justify-content: space-around;
     height: 85%;
-}
-
-footer h6 {
-    margin: 20px auto;
 }
 
 footer li {
@@ -460,7 +499,6 @@ footer li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 280px;
 }
 
 .footer-logo ul li svg {
@@ -480,26 +518,14 @@ footer li {
 }
 
 .footer-icon {
-    width: 50px;
-    height: 50px;
-    margin: 20px auto;
+    width: 30px;
+    height: 30px;
 }
 
-.footer-actions {
-    justify-content: space-between;
-    padding: 0 20px 20px 20px;
-}
-
-.footer-actions p {
-    justify-content: flex-end;
-    align-self: flex-end;
-}
-
-.footer-actions button {
+footer button {
     display: flex;
     justify-content: center;
     align-items: center;
-    align-self: flex-end;
     width: 50px;
     height: 50px;
     border: 0;
@@ -508,11 +534,27 @@ footer li {
     cursor: pointer;
 }
 
-.footer-actions button svg {
+footer button svg {
     fill: white;
     width: 80%;
     height: 80%;
     transform: rotate(-90deg);
+}
+
+.footer-logo ul {
+    display: none;
+}
+
+.footer-actions .auto-scroll-top {
+    display: none;
+}
+
+.footer-actions {
+    justify-content: center;
+}
+
+.footer-actions span {
+    font-size: 14px;
 }
 
 /* ----- Cards ----- */
@@ -748,6 +790,47 @@ button:active {
 
 /* Large */
 @media (min-width: 992px) {
+    footer .footer-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    footer .accordion-header.open div, footer .accordion-header div, .footer-logo button {
+        display: none;
+    }
+
+    footer .accordion-content, footer .footer-actions .auto-scroll-top, footer .footer-logo ul {
+        display: block;
+    }
+
+    footer .footer-actions {
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .accordion-content {
+        display: none;
+        overflow: hidden;
+    }
+
+    .footer-logo a {
+        flex-direction: column;
+    }
+
+    .footer-logo {
+        max-width: 30%;
+    }
+
+    footer .social-container .accordion-content div {
+        min-width: 50px;
+        justify-content: space-between;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-around;
+    }
+    
     .logo, .nav-hamburger-logo {
         width: fit-content;
     }
@@ -786,6 +869,11 @@ button:active {
         max-width: none;
         min-width: 300px;
         max-width: 300px;
+    }
+
+    .sidebar span:hover {
+        color: var(--color-secondary);
+        cursor: pointer;
     }
 
     .search-icon {
@@ -878,6 +966,10 @@ button:active {
 @media (min-width: 1200px) {
     .searchbar {
         max-width: 250px;
+    }
+
+    .footer-logo {
+        max-width: 300px;
     }
 }
 
@@ -1631,4 +1723,30 @@ body.estreno .carousel-pages div.active {
     body.estreno .characters .character-card span {
         font-size: 60px;
     }
+}
+
+.modal-share.open {
+    display: flex;
+    opacity: 1;
+    z-index: 99;
+}
+
+.modal-share {
+    transition: all 1s ease-in;
+    opacity: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-share .content {
+    width: 50%;
+    color: white;
+    padding: 32px;
+    border-radius: 5px;
+    background-color: var(--color-primary-shadow-2);
 }
