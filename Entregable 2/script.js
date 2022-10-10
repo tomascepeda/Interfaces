@@ -47,7 +47,7 @@ function loading() {
                 document.getElementById("main").classList.toggle("none");
                 clearInterval(timeProgress);
             }
-        }, 1);
+        }, 5000);
     }
 }
 
