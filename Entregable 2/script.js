@@ -34,7 +34,7 @@ function loading() {
         let i = 0;
         let timeProgress = setInterval(() => {
             if (i <= 100)
-                progress.innerHTML = i++ + "%";
+                progress.innerHTML = "Cargando " + i++ + "%";
         }, 48);
 
         setTimeout(() => {

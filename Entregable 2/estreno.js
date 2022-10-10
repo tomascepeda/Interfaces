@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("scroll", onScroll);
+    document.querySelector("#call-to-action").addEventListener("click", () => {
+        document.querySelector("section.reserve").scrollIntoView({ behavior: 'smooth' });
+    });
 });
 
 function onScroll(e) {
