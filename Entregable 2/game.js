@@ -45,7 +45,10 @@ function commentsCounter() {
 }
 
 function startGame() {
-    document.querySelector(".game-instructions").classList.add("none")
+    let instruccions = document.querySelector(".game-instructions");
+    instruccions.classList.add("invisible");
+    setTimeout(() => instruccions.classList.add("none"), 1000);
+
 }
 
 function loadCanvas() {
