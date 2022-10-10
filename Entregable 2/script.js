@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadScrolls();
     loadCarouselsPageables();
     loadAccordions();
+    loadCartButtons();
     let buttonsToggleNavMenu = document.querySelectorAll(".button-toggle-nav-menu-js");
     buttonsToggleNavMenu.forEach(button => button.addEventListener("click", toggleNav));
     let autoScrollBtns = document.querySelectorAll(".auto-scroll-top");
@@ -46,7 +47,7 @@ function loading() {
                 document.getElementById("main").classList.toggle("none");
                 clearInterval(timeProgress);
             }
-        }, 5000);
+        }, 1);
     }
 }
 
@@ -198,6 +199,31 @@ function loadAccordions() {
             let accordionContent = accordionHeader.nextElementSibling;
             accordionHeader.classList.toggle("open");
             accordionContent.classList.toggle("open");
+        });
+    });
+}
+
+function loadCartButtons() {
+    document.querySelectorAll(".btn-accent").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            let btnMessage = btn.querySelector(".add-to-cart-message");
+            let btnCart = document.querySelector("#btn-cart");
+            let cartCounter = document.querySelector("#cart-counter");
+            let gamesInChart = parseInt(cartCounter.innerHTML);
+            if (btn.classList.contains("added")) {
+                btnMessage.innerHTML = "Agregar al carrito";
+                btn.classList.remove("added");
+                gamesInChart--;
+                cartCounter.innerHTML = gamesInChart;
+                if (gamesInChart == "0")
+                    btnCart.classList.add("none");
+            } else {
+                btnMessage.innerHTML = "Quitar del carrito";
+                gamesInChart++;
+                cartCounter.innerHTML = gamesInChart;
+                btnCart.classList.remove("none");
+                btn.classList.add("added");
+            }
         });
     });
 }

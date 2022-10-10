@@ -667,6 +667,9 @@ footer button svg {
 }
 
 .card-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     margin: 3% 3.5% 2% 3.5%;
     font-size: var(--font-h6-size);
 }
