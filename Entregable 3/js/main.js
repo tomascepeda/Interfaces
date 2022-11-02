@@ -6,11 +6,10 @@ import Board from "./Board.js";
 document.addEventListener("DOMContentLoaded", () => {
     startBoard();
     function startBoard() {
-        let columns = 7;
-        let rows = 6;
+        let modality = 4;
         CanvasHelper.startCanvas();
         let board = Board.getInstance();
-        board.create(rows, columns);
+        board.create(modality);
         board.startBoard();
     }
 });

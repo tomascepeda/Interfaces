@@ -23,10 +23,12 @@ class Board {
     imgBackground;
     timeForScreen;
     static instance = new Board();
+    modality;
 
-    create(rows, columns) {
-        this.rows = rows;
-        this.columns = columns;
+    create(modality) {
+        this.modality = modality;
+        this.rows = modality + 2;
+        this.columns = modality + 3;
         this.containers = [];
         this.tokens = [];
         this.mouseDown = this.selectToken.bind(this);
@@ -84,9 +86,9 @@ class Board {
         let ctx = CanvasHelper.getCtx();
         ctx.fillStyle = "black";
         if(this.gameOver) {
-            ctx.fillText("Se acabo el tiempo", CanvasHelper.getWidth() / 2 - 130, 50);
+            ctx.fillText("Se acabo el tiempo", CanvasHelper.getWidth() / 2 - 80, 20);
         } else {
-            ctx.fillText(this.timeForScreen, CanvasHelper.getWidth() / 2 - 180, 50); 
+            ctx.fillText(this.timeForScreen, CanvasHelper.getWidth() / 2 - 110, 20); 
         }
         
     }
@@ -105,17 +107,24 @@ class Board {
 
     showPlayersText() {
         let ctx = CanvasHelper.getCtx();
-        ctx.font = "30px Arial";
+        ctx.font = "20px Arial";
         ctx.fillStyle = "black";
 
         if (this.winner == null) {
-            ctx.fillText("Casa Lannister", 10, 50);
-            ctx.fillText("Casa Targaryen", CanvasHelper.getWidth() -220, 50);
+            ctx.fillText("Casa Lannister", 10, 20);
+            ctx.fillText("Casa Targaryen", CanvasHelper.getWidth() -150, 20);
+            if(this.turn == PLAYER_1){
+                ctx.fillText("Turno de la Casa Lannister", (CanvasHelper.getWidth() / 2) - 115, 50);
+            } else if (this.turn == PLAYER_2) {
+                ctx.fillText("Turno de la Casa Targaryen", (CanvasHelper.getWidth() / 2) - 115, 50);
+            } else {
+                ctx.fillText("Cualquier jugador puede comenzar", (CanvasHelper.getWidth() / 2) - 150, 50);
+            }
         } else {
             if (this.winner == PLAYER_1) {
-                ctx.fillText("¡¡¡Gana la casa Lannister!!!", CanvasHelper.getWidth() / 2 - 170, 50);
+                ctx.fillText("¡¡¡Gana la Casa Lannister!!!", CanvasHelper.getWidth() / 2 - 120, 20);
             } else {
-                ctx.fillText("¡¡¡Gana la casa Targaryen!!!", CanvasHelper.getWidth() / 2 - 170, 50);
+                ctx.fillText("¡¡¡Gana la Casa Targaryen!!!", CanvasHelper.getWidth() / 2 - 120, 20);
             }
         }
     }
@@ -124,10 +133,10 @@ class Board {
         let coordinates = [];
         let container;
         let displacementX = (CanvasHelper.getWidth() - this.width) / 2;
-        let displacementY = CanvasHelper.getHeight() - this.height;
+        let displacementY = CanvasHelper.getHeight() - this.height - 20;
         this.startBoardX = displacementX;
         this.endBoardX = this.width + displacementX;
-        this.startBoardY = CanvasHelper.getHeight() - this.height;
+        this.startBoardY = CanvasHelper.getHeight() - this.height - 20;
         this.showBackground();
         
         for (let row = 0; row < this.rows; row++) {
@@ -353,15 +362,16 @@ class Board {
     }
 
     checkTokenArea(row, column) {
+        let modality = this.modality - 1;
         let win = false;
-        let i = -3;
-        let j = -3;
+        let i = modality * (-1);
+        let j = modality * (-1);
         let rowAux;
         let columnAux;
 
-        while ((i <= 3) && !win) {
-            j = -3;
-            while ((j <= 3) && !win) {
+        while ((i <= modality) && !win) {
+            j = modality * (-1);
+            while ((j <= modality) && !win) {
                 rowAux = row + i;
                 columnAux = column + j;
 
@@ -402,7 +412,7 @@ class Board {
         for (let direction = 0; direction < directions.length; direction++){
             let i = 1;
             same = true;
-            while ((i < 4) && same) {
+            while ((i < this.modality) && same) {
                 try {
                     container2 = directions[direction](i);
                 } catch (error) {
@@ -428,7 +438,7 @@ class Board {
         let imgContainer = document.querySelector("#container-green-js");
 
         container.setWinner(imgContainer);
-        for (let i = 1; i <= 3; i++) {
+        for (let i = 1; i <= (this.modality - 1); i++) {
             container = direction(i);
             token = container.setWinner(imgContainer);
         }
