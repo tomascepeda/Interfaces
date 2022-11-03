@@ -22,6 +22,8 @@ class Board {
     gameOver;
     imgBackground;
     timeForScreen;
+    maxTimeInMinutes = 5;
+    timerInterval;
     static instance = new Board();
     modality;
 
@@ -52,9 +54,9 @@ class Board {
     startRemainingTime(currentDate, minutes){
         let endDate = new Date();
         endDate.setMinutes(endDate.getMinutes() + minutes);
-        let timer = setInterval(() => {
+        this.timerInterval = setInterval(() => {
             if(this.winner != null){
-                clearInterval(timer);
+                clearInterval(this.timerInterval);
             } else {
                 if(currentDate >= endDate){
                     this.gameOver = true;
@@ -62,7 +64,7 @@ class Board {
                         this.restoreToken(this.tokenSelected);
                         this.tokenSelected = null;
                     }
-                    clearInterval(timer);
+                    clearInterval(this.timerInterval);
                 } else {
                     let timeToEnd = endDate - currentDate;
                     let minutes = Math.floor((timeToEnd % (1000 * 60 * 60)) / (1000 * 60));
@@ -86,9 +88,9 @@ class Board {
         let ctx = CanvasHelper.getCtx();
         ctx.fillStyle = "black";
         if(this.gameOver) {
-            ctx.fillText("Se acabo el tiempo", CanvasHelper.getWidth() / 2 - 80, 20);
+            ctx.fillText("Se acabo el tiempo", CanvasHelper.getWidth() / 2 - 80, 30);
         } else {
-            ctx.fillText(this.timeForScreen, CanvasHelper.getWidth() / 2 - 110, 20); 
+            ctx.fillText(this.timeForScreen, CanvasHelper.getWidth() / 2 - 150, 30); 
         }
         
     }
@@ -102,7 +104,17 @@ class Board {
         this.createTokens();
         this.assignEvents();
         this.showPlayersText();
-        this.startRemainingTime(new Date(), 5);
+        this.startRemainingTime(new Date(), this.maxTimeInMinutes);
+    }
+
+    reset() {
+        clearInterval(this.timerInterval);
+        this.turn = null;
+        this.winner = null;
+        this.createBoard();
+        this.createTokens();
+        this.showPlayersText();
+        this.startRemainingTime(new Date(), this.maxTimeInMinutes);
     }
 
     showPlayersText() {
@@ -114,17 +126,17 @@ class Board {
             ctx.fillText("Casa Lannister", 10, 20);
             ctx.fillText("Casa Targaryen", CanvasHelper.getWidth() -150, 20);
             if(this.turn == PLAYER_1){
-                ctx.fillText("Turno de la Casa Lannister", (CanvasHelper.getWidth() / 2) - 115, 50);
+                ctx.fillText("Turno de la Casa Lannister", (CanvasHelper.getWidth() / 2) - 115, 60);
             } else if (this.turn == PLAYER_2) {
-                ctx.fillText("Turno de la Casa Targaryen", (CanvasHelper.getWidth() / 2) - 115, 50);
+                ctx.fillText("Turno de la Casa Targaryen", (CanvasHelper.getWidth() / 2) - 115, 60);
             } else {
-                ctx.fillText("Cualquier jugador puede comenzar", (CanvasHelper.getWidth() / 2) - 150, 50);
+                ctx.fillText("Cualquier jugador puede comenzar", (CanvasHelper.getWidth() / 2) - 150, 60);
             }
         } else {
             if (this.winner == PLAYER_1) {
-                ctx.fillText("¡¡¡Gana la Casa Lannister!!!", CanvasHelper.getWidth() / 2 - 120, 20);
+                ctx.fillText("¡¡¡Gana la Casa Lannister!!!", CanvasHelper.getWidth() / 2 - 170, 30);
             } else {
-                ctx.fillText("¡¡¡Gana la Casa Targaryen!!!", CanvasHelper.getWidth() / 2 - 120, 20);
+                ctx.fillText("¡¡¡Gana la Casa Targaryen!!!", CanvasHelper.getWidth() / 2 - 170, 30);
             }
         }
     }

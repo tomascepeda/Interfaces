@@ -1,5 +1,3 @@
-import Container from "./Container.js";
-import Token from "./Token.js";
 import CanvasHelper from "./Helper/CanvasHelper.js";
 import Board from "./Board.js";
 
@@ -11,5 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let board = Board.getInstance();
         board.create(modality);
         board.startBoard();
+        document.querySelector("#reset-btn-js").addEventListener("click", () => board.reset());
     }
 });

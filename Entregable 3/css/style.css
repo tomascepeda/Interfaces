@@ -1857,6 +1857,26 @@ body.estreno .carousel-pages div.active {
     z-index: 3;
 }
 
+#reset-btn-js {
+    height: 40px;
+    font-size: large;
+    color: var(--color-secondary-shadow-1);
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 5px;
+    position: relative;
+    background-color: var(--color-secondary);
+    border: 2px solid var(--color-secondary-shadow-1);
+    left: 730px;
+    bottom: 327px;
+}
+
+#reset-btn-js:hover {
+    color: white;
+    font-weight: normal;
+    background-color: var(--color-secondary-shadow-1);
+}
+
 .modal-share {
     position: fixed;
     transition: opacity .3s ease-in;
