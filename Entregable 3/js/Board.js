@@ -21,13 +21,16 @@ class Board {
     winner;
     gameOver;
     imgBackground;
+    imgBoard;
     timeForScreen;
     maxTimeInMinutes = 5;
     timerInterval;
+    imgToken1;
+    imgToken2;
     static instance = new Board();
     modality;
 
-    create(modality) {
+    create(modality, tk1Img, tk2Img) {
         this.modality = modality;
         this.rows = modality + 2;
         this.columns = modality + 3;
@@ -48,7 +51,12 @@ class Board {
         let background = document.querySelector("#bg-game-js");
         this.imgBackground = new Image();
         this.imgBackground.src = background.src;
+        let boardBackround = document.querySelector("#bg-board-js");
+        this.imgBoard = new Image();
+        this.imgBoard.src = boardBackround.src;
         this.timeForScreen = "";
+        this.imgToken1 = tk1Img;
+        this.imgToken2 = tk2Img;
     }
 
     startRemainingTime(currentDate, minutes){
@@ -114,7 +122,6 @@ class Board {
         this.createBoard();
         this.createTokens();
         this.showPlayersText();
-        this.startRemainingTime(new Date(), this.maxTimeInMinutes);
     }
 
     showPlayersText() {
@@ -170,14 +177,12 @@ class Board {
         let tokensPerPlayer = amountTokens / 2;
         let token;
         let radius = TOKEN_RADIUS;
-        let imgToken1 = document.querySelector("#token-1-js");
-        let imgToken2 = document.querySelector("#token-2-js");
 
         for (let i = 0; i < amountTokens; i++) {
             if (i < tokensPerPlayer) {
-                token = new Token(radius, imgToken1, PLAYER_1);
+                token = new Token(radius, this.imgToken1, PLAYER_1);
             } else {
-                token = new Token(radius, imgToken2, PLAYER_2);
+                token = new Token(radius, this.imgToken2, PLAYER_2);
             }
             let action = (coordinates, token) => token.move(coordinates);
             this.assignTokenPosition(token,action);
@@ -195,7 +200,7 @@ class Board {
         boardBackgroundCoordinates[Y] = this.startBoardY;
         if (this.imgBackground.complete) {
             CanvasHelper.addImage(this.imgBackground, backgroundCoordinates, CanvasHelper.getWidth(), CanvasHelper.getHeight());
-            CanvasHelper.drawBoardBackground(boardBackgroundCoordinates, this.width, this.height);
+            CanvasHelper.addImage(this.imgBoard, boardBackgroundCoordinates, this.width, this.height);
         } else {
             let loadImg = () => CanvasHelper.addImage(this.imgBackground, CanvasHelper.getWidth(), CanvasHelper.getHeight());
             this.imgBackground.onload = loadImg.bind(this);

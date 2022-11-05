@@ -8,8 +8,8 @@
     <title>The Games Suite</title>
     <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
-    <!-- <script src="../js/script.js"></script>
-    <script src="../js/game.js"></script> -->
+    <script src="../js/script.js"></script>
+    <script src="../js/game.js"></script>
     <script src="../js/main.js" type="module"></script>
 </head>
 
@@ -323,12 +323,11 @@
                     </section>
 
                     <section class="game-section">
-                        <img src="../images/4enlinea/container.png" id="container-js" class="none" alt="">
-                        <img src="../images/4enlinea/container-green.png" id="container-green-js" class="none" alt="">
-                        <img src="../images/4enlinea/token1.png" id="token-1-js" class="none" alt="">
-                        <img src="../images/4enlinea/token2.png" id="token-2-js" class="none" alt="">
-                        <img src="../images/4enlinea/bg-game.webp" id="bg-game-js" class="none" alt="">
-                        <div class="game-instructions none">
+                        <img src="../images/4enlinea/container.png" id="container-js" class="none">
+                        <img src="../images/4enlinea/container-green.png" id="container-green-js" class="none">
+                        <img src="../images/4enlinea/bg-game.png" id="bg-game-js" class="none">
+                        <img src="../images/4enlinea/1637671364_preview.webp" id="bg-board-js" class="none">
+                        <div class="game-instructions">
                             <h1>4 en linea: Game of Thrones</h1>
                             <div class="d-flex flex-column align-items-center">
                                 <h4>Instrucciones</h4>
@@ -349,8 +348,46 @@
                                 Iniciar juego
                             </button>
                         </div>
-                        <button id="reset-btn-js">Reiniciar</button>
-                        <canvas id="canvas-game" width="1100px" height="700px"></canvas>
+                        <button id="reset-btn-js" class="none">Reiniciar</button>
+                        <div class="container-selector-tokens open">
+                            <h3 class="w-100 text-center" id="selector-tokens-title">Seleccione su ficha</h3>
+                            <div class="d-flex justify-content-space-around container-tokens1">
+                                <div>
+                                    <h4 class="text-center w-100">Casa Lannister</h4>
+                                    <div>
+                                        <img src="../images/4enlinea/token2_1.png" id="token-2-1-js" class="token selectable-token selected one" >
+                                        <img src="../images/4enlinea/token2_2.png" id="token-2-2-js" class="token selectable-token selected one" >
+                                        <img src="../images/4enlinea/token2_3.png" id="token-2-3-js" class="token selectable-token selected one" >
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-center w-100">Casa Targaryen</h4>
+                                    <div>
+                                        <img src="../images/4enlinea/token1_1.png" id="token-1-1-js" class="token selectable-token selected two" >
+                                        <img src="../images/4enlinea/token1_2.png" id="token-1-2-js" class="token selectable-token selected two" >
+                                        <img src="../images/4enlinea/token1_3.png" id="token-1-3-js" class="token selectable-token selected two" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-space-around container-tokens2 align-items-center">
+                                <img src="../images/4enlinea/token1_3.png" id="selected-token-1" class="token-selected invisible" >
+                                <h2 class="invisible">VS</h2>
+                                <img src="../images/4enlinea/token2_3.png" id="selected-token-2" class="token-selected invisible" >
+                            </div>
+                            <div class="d-flex justify-content-center mt-3 invisible" id="container-play-btn">
+                                <select name="play-mode" id="play-mode">
+                                    <option value="2">2 en linea</option>
+                                    <option value="3">3 en linea</option>
+                                    <option value="4" selected>4 en linea</option>
+                                    <option value="5">5 en linea</option>
+                                    <option value="6">6 en linea</option>
+                                    <option value="7">7 en linea</option>
+                                    <option value="8">8 en linea</option>
+                                </select>
+                                <button id="play-button">Jugar</button>
+                            </div>
+                        </div>
+                        <canvas id="canvas-game" class="none" width="1100px" height="700px"></canvas>
                     </section>
 
                     <section class="game-more">

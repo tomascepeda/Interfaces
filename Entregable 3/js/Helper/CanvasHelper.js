@@ -29,11 +29,6 @@ class CanvasHelper {
         this.ctx.drawImage(image, coordinates[X], coordinates[Y], width, height);
     }
 
-    static drawBoardBackground(coordinates, width, height) {
-        this.ctx.fillStyle = "darkblue"
-        this.ctx.fillRect(coordinates[X], coordinates[Y], width, height);
-    }
-
     static getCanvas() {
         return this.canvas;
     }
