@@ -1108,6 +1108,27 @@ button:active {
     width: 50%;
 }
 
+.game-instructions ul li img{
+    margin-right: 10px;
+    padding: 0;
+    border: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.game-instructions ul li svg{
+    margin-left: 2px;
+    margin-right: 13px;
+    padding: 0;
+    border: 0;
+    width: 25px;
+    height: 25px;
+}
+
+.game-instructions ul li {
+    margin: 10px auto;
+}
+
 #start-game{
     background-color: var(--color-accent);
     font-size: 25px;
@@ -1887,7 +1908,7 @@ body.estreno .carousel-pages div.active {
 
 .container-selector-tokens .token:hover {
     border-radius: 50px;
-    border: 2px solid var(--color-accent);
+    box-shadow: 0px 0px 25px 5px var(--color-accent);
 }
 
 .container-selector-tokens h4 {
