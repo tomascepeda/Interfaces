@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Games Suite</title>
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
+    <script src="../js/game.js"></script>
+    <script src="../js/main.js" type="module"></script>
+</head>
+
+<body>
+    <div class="modal-share overflow-hidden" id="modal-js">
+        <div class="content">
+            <div class="d-flex justify-content-space-between align-items-center mb-3">
+                <h4>Compartir</h4>
+                <div class="cursor-pointer" id="close-modal-js">
+                    <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_129_4427)">
+                        <path d="M19.9073 4.02156C20.6633 3.26551 20.6633 2.03768 19.9073 1.28164C19.1512 0.525588 17.9234 0.525588 17.1674 1.28164L10.7984 7.65664L4.42341 1.28768C3.66736 0.531636 2.43954 0.531636 1.68349 1.28768C0.927443 2.04373 0.927443 3.27155 1.68349 4.0276L8.05849 10.3966L1.68954 16.7716C0.933491 17.5276 0.933491 18.7554 1.68954 19.5115C2.44559 20.2675 3.67341 20.2675 4.42946 19.5115L10.7984 13.1365L17.1734 19.5054C17.9295 20.2615 19.1573 20.2615 19.9133 19.5054C20.6694 18.7494 20.6694 17.5216 19.9133 16.7655L13.5383 10.3966L19.9073 4.02156Z" fill="white"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_129_4427">
+                        <rect width="20" height="20" fill="white" transform="translate(0.79834 0.396484)"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+            <div class="d-flex justify-content-space-around mt-3">
+                <div class="cursor-pointer">
+                    <svg width="80" height="81" viewBox="0 0 80 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect y="0.866211" width="80" height="80" rx="40" fill="#25D366"/>
+                        <g clip-path="url(#clip0_129_1458)">
+                        <path d="M57.5112 23.2326C52.8348 18.5718 46.6071 16.0083 39.9888 16.0083C26.3281 16.0083 15.2121 27.0612 15.2121 40.6443C15.2121 44.9834 16.3504 49.2225 18.5156 52.9623L15 65.7242L28.1362 62.2951C31.7522 64.2594 35.8259 65.2914 39.9777 65.2914H39.9888C53.6384 65.2914 65 54.2385 65 40.6554C65 34.0747 62.1875 27.8935 57.5112 23.2326ZM39.9888 61.141C36.2835 61.141 32.6562 60.1534 29.4978 58.289L28.75 57.8451L20.9598 59.8759L23.0357 52.3187L22.5446 51.5419C20.4799 48.2793 19.3973 44.5173 19.3973 40.6443C19.3973 29.3584 28.6384 20.1698 40 20.1698C45.5022 20.1698 50.6696 22.3005 54.5536 26.1734C58.4375 30.0464 60.8259 35.1844 60.8147 40.6554C60.8147 51.9525 51.3393 61.141 39.9888 61.141ZM51.2835 45.8046C50.6696 45.4938 47.6228 44.0068 47.0536 43.807C46.4844 43.5962 46.0714 43.4963 45.6585 44.1178C45.2455 44.7392 44.0625 46.1153 43.6942 46.537C43.3371 46.9476 42.9688 47.0031 42.3549 46.6923C38.7165 44.8835 36.3281 43.463 33.9286 39.3681C33.2924 38.2806 34.5647 38.3583 35.7478 36.0056C35.9487 35.595 35.8482 35.2399 35.692 34.9292C35.5357 34.6185 34.2969 31.5889 33.7835 30.3571C33.2812 29.1586 32.7679 29.3251 32.3884 29.3029C32.0312 29.2807 31.6183 29.2807 31.2054 29.2807C30.7924 29.2807 30.1228 29.436 29.5536 30.0464C28.9844 30.6678 27.3884 32.1549 27.3884 35.1844C27.3884 38.214 29.6094 41.1437 29.9107 41.5543C30.2232 41.9649 34.2746 48.1794 40.4911 50.8538C44.4196 52.5406 45.9598 52.6849 47.9241 52.3964C49.1183 52.2188 51.5848 50.9093 52.0982 49.4667C52.6116 48.024 52.6116 46.7922 52.4554 46.537C52.3103 46.2595 51.8973 46.1042 51.2835 45.8046Z" fill="white"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_129_1458">
+                        <rect width="50" height="50" fill="white" transform="translate(15 15.8662)"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="cursor-pointer">
+                    <svg width="80" height="81" viewBox="0 0 80 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect y="0.866211" width="80" height="80" rx="40" fill="#3B5998"/>
+                        <g clip-path="url(#clip0_129_3036)">
+                        <path d="M51.0417 43.9912L52.4193 34.9424H43.8062V29.0703C43.8062 26.5947 45.0093 24.1816 48.8669 24.1816H52.7826V16.4775C52.7826 16.4775 49.2292 15.8662 45.8318 15.8662C38.7386 15.8662 34.1022 20.2002 34.1022 28.0459V34.9424H26.2175V43.9912H34.1022V65.8662H43.8062V43.9912H51.0417Z" fill="white"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_129_3036">
+                        <rect width="50" height="50" fill="white" transform="translate(15 15.8662)"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="cursor-pointer">
+                    <svg width="80" height="81" viewBox="0 0 80 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect y="0.866211" width="80" height="80" rx="40" fill="#1DA1F2"/>
+                        <path d="M59.8604 30.6823C59.8921 31.1264 59.8921 31.5707 59.8921 32.0148C59.8921 45.5617 49.5812 61.1708 30.736 61.1708C24.9302 61.1708 19.5368 59.4893 15 56.5707C15.8249 56.6658 16.618 56.6975 17.4746 56.6975C22.2651 56.6975 26.6751 55.0795 30.1967 52.3194C25.6916 52.2242 21.9162 49.2737 20.6154 45.2127C21.25 45.3079 21.8845 45.3713 22.5508 45.3713C23.4708 45.3713 24.3909 45.2444 25.2475 45.0224C20.5521 44.0706 17.0304 39.9462 17.0304 34.9653V34.8384C18.3945 35.5999 19.981 36.0757 21.6623 36.1391C18.9021 34.299 17.0938 31.1582 17.0938 27.6048C17.0938 25.7013 17.6014 23.9564 18.4897 22.4335C23.5342 28.6518 31.1167 32.7126 39.6191 33.1569C39.4605 32.3955 39.3653 31.6024 39.3653 30.8092C39.3653 25.162 43.9339 20.5618 49.6128 20.5618C52.5633 20.5618 55.2282 21.7991 57.1001 23.7978C59.416 23.3537 61.6368 22.497 63.6039 21.3232C62.8424 23.7027 61.2244 25.7014 59.0988 26.9704C61.161 26.7484 63.1598 26.1772 64.9998 25.3841C63.6041 27.4145 61.8591 29.2228 59.8604 30.6823Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="cursor-pointer">
+                    <svg width="80" height="81" viewBox="0 0 80 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect y="0.866211" width="80" height="80" rx="40" fill="#888888"/>
+                        <path d="M19.6875 22.1162C17.0996 22.1162 15 24.2158 15 26.8037C15 28.2783 15.6934 29.665 16.875 30.5537L38.125 46.4912C39.2383 47.3213 40.7617 47.3213 41.875 46.4912L63.125 30.5537C64.3066 29.665 65 28.2783 65 26.8037C65 24.2158 62.9004 22.1162 60.3125 22.1162H19.6875ZM15 33.0537V53.3662C15 56.8135 17.8027 59.6162 21.25 59.6162H58.75C62.1973 59.6162 65 56.8135 65 53.3662V33.0537L43.75 48.9912C41.5234 50.6611 38.4766 50.6611 36.25 48.9912L15 33.0537Z" fill="white"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav id="nav">
+        <div class="d-flex align-items-center nav-hamburger-logo">
+            <div class="nav-hamburger">
+                <svg class="icon-h5 button-toggle-nav-menu-js cursor-pointer" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path
+                        d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                </svg>
+                <svg class="icon-h5 button-toggle-nav-menu-js cursor-pointer close-hamburger" viewBox="0 0 50 50"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M47.7722 9.0625C49.6624 7.17237 49.6624 4.10282 47.7722 2.2127C45.8821 0.322575 42.8126 0.322575 40.9224 2.2127L25.0001 18.1502L9.06256 2.22782C7.17243 0.337695 4.10288 0.337695 2.21276 2.22782C0.322636 4.11794 0.322636 7.18749 2.21276 9.07761L18.1503 25L2.22788 40.9375C0.337757 42.8276 0.337757 45.8972 2.22788 47.7873C4.118 49.6774 7.18756 49.6774 9.07768 47.7873L25.0001 31.8498L40.9376 47.7722C42.8277 49.6623 45.8972 49.6623 47.7874 47.7722C49.6775 45.882 49.6775 42.8125 47.7874 40.9224L31.8499 25L47.7722 9.0625Z"
+                        fill="black" />
+                </svg>
+            </div>
+
+            <a href="../index.html" class="logo">
+                <img class="logo-icon icon-h5" src="../images/favicon.png" alt="Logo">
+                <h5>The Games Suite</h5>
+            </a>
+        </div>
+        <div class="searchbar">
+            <input type="text" placeholder="Buscar un juego" />
+            <svg class="search-icon icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
+            </svg>
+        </div>
+        <div class="nav-button-group">
+            <button class="btn btn-primary btn-nav none" id="btn-cart">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                        d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z" />
+                </svg>
+                <span>Comprar <span id="cart-counter">0</span> titulos</span>
+            </button>
+            <button class="btn btn-primary btn-nav">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path
+                        d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+                </svg>
+                <span>Biblioteca</span>
+            </button>
+            <button class="btn btn-primary btn-nav">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                </svg>
+                <span>Perfil</span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main">
+        <div class="background-sidebar-menu button-toggle-nav-menu-js" id="sidebar-menu-background-js"></div>
+
+        <aside class="sidebar" id="sidebar-js">
+            <svg class="icon-h5 button-toggle-nav-menu-js mb-3 close-sidebar-button cursor-pointer" viewBox="0 0 50 50"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M47.7722 9.0625C49.6624 7.17237 49.6624 4.10282 47.7722 2.2127C45.8821 0.322575 42.8126 0.322575 40.9224 2.2127L25.0001 18.1502L9.06256 2.22782C7.17243 0.337695 4.10288 0.337695 2.21276 2.22782C0.322636 4.11794 0.322636 7.18749 2.21276 9.07761L18.1503 25L2.22788 40.9375C0.337757 42.8276 0.337757 45.8972 2.22788 47.7873C4.118 49.6774 7.18756 49.6774 9.07768 47.7873L25.0001 31.8498L40.9376 47.7722C42.8277 49.6623 45.8972 49.6623 47.7874 47.7722C49.6775 45.882 49.6775 42.8125 47.7874 40.9224L31.8499 25L47.7722 9.0625Z"
+                    fill="white" />
+            </svg>
+
+            <div class="account">
+                <div class="profile"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path
+                            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                    </svg></div>
+                <h6>Tomas Cepeda</h6>
+                <button class="btn btn-nav w-100">Cerrar sesion</button>
+            </div>
+
+            <ul>
+                <a href="../index.html".html">
+                    <li>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path
+                                d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+                        </svg>
+                        <span>Inicio</span>
+                    </li>
+                </a>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path
+                            d="M256 512C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256s-114.6 256-256 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
+                    </svg>
+                    <span>Recientes</span>
+                </li>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <path
+                            d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                    </svg>
+                    <span>Favoritos</span>
+                </li>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path
+                            d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-2.8-5.6-5.6-11.2-9.8-16.8l-50.6 58.8s-81.4-103.6-87.1-110.6C133.1 243.8 112 273.2 112 306.8C112 375.4 162.6 416 225.7 416z" />
+                    </svg>
+                    <span>Tendencias</span>
+                </li>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path
+                            d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+                    </svg>
+                    <span>Nuevo</span>
+                </li>
+                <li class="d-none-lg">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <path
+                            d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z" />
+                    </svg>
+                    <span>Carrito</span>
+                </li>
+                <li class="d-none-lg">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path
+                            d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+                    </svg>
+                    <span>Biblioteca</span>
+                </li>
+                <li class="d-none-lg">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path
+                            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                    </svg>
+                    <span>Perfil</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M192 64c0 35.3-28.7 64-64 64s-64-28.7-64-64S92.7 0 128 0s64 28.7 64 64zM25.9 233.4C29.3 191.9 64 160 105.6 160h44.8c27 0 51 13.4 65.5 34.1c-2.7 1.9-5.2 4-7.5 6.3l-64 64c-21.9 21.9-21.9 57.3 0 79.2L192 391.2V464c0 26.5-21.5 48-48 48H112c-26.5 0-48-21.5-48-48V348.3c-26.5-9.5-44.7-35.8-42.2-65.6l4.1-49.3zM576 64c0 35.3-28.7 64-64 64s-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64zM431.6 200.4c-2.3-2.3-4.9-4.4-7.5-6.3c14.5-20.7 38.6-34.1 65.5-34.1h44.8c41.6 0 76.3 31.9 79.7 73.4l4.1 49.3c2.5 29.8-15.7 56.1-42.2 65.6V464c0 26.5-21.5 48-48 48H496c-26.5 0-48-21.5-48-48V391.2l47.6-47.6c21.9-21.9 21.9-57.3 0-79.2l-64-64zM272 240v32h96V240c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2l64 64c9.4 9.4 9.4 24.6 0 33.9l-64 64c-6.9 6.9-17.2 8.9-26.2 5.2s-14.8-12.5-14.8-22.2V336H272v32c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-64-64c-9.4-9.4-9.4-24.6 0-33.9l64-64c6.9-6.9 17.2-8.9 26.2-5.2s14.8 12.5 14.8 22.2z" />
+                    </svg>
+                    <span>Multiplayer</span>
+                </li>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M171.3 96H224v96H111.3l30.4-75.9C146.5 104 158.2 96 171.3 96zM272 192V96h81.2c9.7 0 18.9 4.4 25 12l67.2 84H272zm256.2 1L428.2 68c-18.2-22.8-45.8-36-75-36H171.3c-39.3 0-74.6 23.9-89.1 60.3L40.6 196.4C16.8 205.8 0 228.9 0 256V368c0 17.7 14.3 32 32 32H65.3c7.6 45.4 47.1 80 94.7 80s87.1-34.6 94.7-80H385.3c7.6 45.4 47.1 80 94.7 80s87.1-34.6 94.7-80H608c17.7 0 32-14.3 32-32V320c0-65.2-48.8-119-111.8-127zm-2.9 207c-6.6 18.6-24.4 32-45.3 32s-38.7-13.4-45.3-32c-1.8-5-2.7-10.4-2.7-16c0-26.5 21.5-48 48-48s48 21.5 48 48c0 5.6-1 11-2.7 16zM160 432c-20.9 0-38.7-13.4-45.3-32c-1.8-5-2.7-10.4-2.7-16c0-26.5 21.5-48 48-48s48 21.5 48 48c0 5.6-1 11-2.7 16c-6.6 18.6-24.4 32-45.3 32z" />
+                    </svg>
+                    <span>Carreras</span>
+                </li>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M417.3 360.1l-71.6-4.8c-5.2-.3-10.3 1.1-14.5 4.2s-7.2 7.4-8.4 12.5l-17.6 69.6C289.5 445.8 273 448 256 448s-33.5-2.2-49.2-6.4L189.2 372c-1.3-5-4.3-9.4-8.4-12.5s-9.3-4.5-14.5-4.2l-71.6 4.8c-17.6-27.2-28.5-59.2-30.4-93.6L125 228.3c4.4-2.8 7.6-7 9.2-11.9s1.4-10.2-.5-15l-26.7-66.6C128 109.2 155.3 89 186.7 76.9l55.2 46c4 3.3 9 5.1 14.1 5.1s10.2-1.8 14.1-5.1l55.2-46c31.3 12.1 58.7 32.3 79.6 57.9l-26.7 66.6c-1.9 4.8-2.1 10.1-.5 15s4.9 9.1 9.2 11.9l60.7 38.2c-1.9 34.4-12.8 66.4-30.4 93.6zM256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zm14.1-325.7c-8.4-6.1-19.8-6.1-28.2 0L194 221c-8.4 6.1-11.9 16.9-8.7 26.8l18.3 56.3c3.2 9.9 12.4 16.6 22.8 16.6h59.2c10.4 0 19.6-6.7 22.8-16.6l18.3-56.3c3.2-9.9-.3-20.7-8.7-26.8l-47.9-34.8z" />
+                    </svg>
+                    <span>Futbol</span>
+                </li>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M86.6 64C119 35.5 158.6 15 202.3 5.6C206 19.1 208 33.3 208 48c0 38.4-13.5 73.7-36.1 101.3L86.6 64zM64 86.6l85.2 85.2C121.7 194.5 86.4 208 48 208c-14.7 0-28.9-2-42.4-5.7C15 158.6 35.5 119 64 86.6zM256 0c64.9 0 124.2 24.2 169.4 64L256 233.4 194.6 172C222.9 138.5 240 95.3 240 48c0-16.2-2-32-5.8-47.1C241.4 .3 248.7 0 256 0zM48 240c47.3 0 90.5-17.1 124-45.4L233.4 256 64 425.4C24.2 380.2 0 320.9 0 256c0-7.3 .3-14.6 .9-21.8C16 238 31.8 240 48 240zm463.1 37.8C496 274 480.2 272 464 272c-47.3 0-90.5 17.1-124 45.4L278.6 256 448 86.6c39.8 45.1 64 104.4 64 169.4c0 7.3-.3 14.6-.9 21.8zm-4.7 31.9C497 353.4 476.5 393 448 425.4l-85.2-85.2C390.3 317.5 425.6 304 464 304c14.7 0 28.9 2 42.4 5.7zM340.1 362.7L425.4 448C393 476.5 353.4 497 309.7 506.4C306 492.9 304 478.7 304 464c0-38.4 13.5-73.7 36.1-101.3zM317.4 340C289.1 373.5 272 416.7 272 464c0 16.2 2 32 5.8 47.1c-7.2 .6-14.5 .9-21.8 .9c-64.9 0-124.2-24.2-169.4-64L256 278.6 317.4 340z" />
+                    </svg>
+                    <span>Basquet</span>
+                </li>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M511.8 267.4c-26.1 8.7-53.4 13.8-81 15.1c9.2-105.3-31.5-204.2-103.2-272.4C434.1 41.1 512 139.5 512 256c0 3.8-.1 7.6-.2 11.4zm-3.9 34.7c-5.8 32-17.6 62-34.2 88.7c-97.5 48.5-217.7 42.6-311.9-24.5c23.7-36.2 55.4-67.7 94.5-91.8c79.9 43.2 170.1 50.8 251.6 27.6zm-236-55.5c-2.5-90.9-41.1-172.7-101.9-231.7C196.8 5.2 225.8 0 256 0c2.7 0 5.3 0 7.9 .1c90.8 60.2 145.7 167.2 134.7 282.3c-43.1-2.4-86.4-14.1-126.8-35.9zM138 28.8c20.6 18.3 38.7 39.4 53.7 62.6C95.9 136.1 30.6 220.8 7.3 316.9C2.5 297.4 0 277 0 256C0 157.2 56 71.5 138 28.8zm69.6 90.5c19.5 38.6 31 81.9 32.3 127.7C162.5 294.6 110.9 368.9 90.2 451C66 430.4 45.6 405.4 30.4 377.2c6.7-108.7 71.9-209.9 177.1-257.9zM256 512c-50.7 0-98-14.7-137.8-40.2c5.6-27 14.8-53.1 27.4-77.7C232.2 454.6 338.1 468.8 433 441c-46 44-108.3 71-177 71z" />
+                    </svg>
+                    <span>Voley</span>
+                </li>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M416 288c-50.1 0-93.6 28.8-114.6 70.8L68.9 126.3l.6-.6 60.1-60.1c87.5-87.5 229.3-87.5 316.8 0c67.1 67.1 82.7 166.3 46.8 248.3C471.8 297.6 445 288 416 288zM49.3 151.9L290.1 392.7c-1.4 7.5-2.1 15.3-2.1 23.3c0 23.2 6.2 44.9 16.9 63.7c-3 .2-6.1 .3-9.2 .3H293c-33.9 0-66.5-13.5-90.5-37.5l-9.8-9.8c-13.1-13.1-34.6-12.4-46.8 1.7L88.2 501c-5.8 6.7-14.2 10.7-23 11s-17.5-3.1-23.8-9.4l-32-32C3.1 464.3-.3 455.7 0 446.9s4.3-17.2 11-23l66.6-57.7c14-12.2 14.8-33.7 1.7-46.8l-9.8-9.8C45.5 285.5 32 252.9 32 219v-2.7c0-22.8 6.1-44.9 17.3-64.3zM416 512c-53 0-96-43-96-96s43-96 96-96s96 43 96 96s-43 96-96 96z" />
+                    </svg>
+                    <span>Tenis</span>
+                </li>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M160 0c17.7 0 32 14.3 32 32V144H128V32c0-17.7 14.3-32 32-32zM32 64c0-17.7 14.3-32 32-32s32 14.3 32 32v80H32V64zm192 0c0-17.7 14.3-32 32-32s32 14.3 32 32v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V64zm96 64c0-17.7 14.3-32 32-32s32 14.3 32 32v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V128zm-96 88l0-.6c9.4 5.4 20.3 8.6 32 8.6c13.2 0 25.4-4 35.6-10.8c8.7 24.9 32.5 42.8 60.4 42.8c11.7 0 22.6-3.1 32-8.6V256c0 52.3-25.1 98.8-64 128v96c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32V401.6c-17.3-7.9-33.2-18.8-46.9-32.5L37.5 357.5C13.5 333.5 0 300.9 0 267V240c0-35.3 28.7-64 64-64h88c22.1 0 40 17.9 40 40s-17.9 40-40 40H96c-8.8 0-16 7.2-16 16s7.2 16 16 16h56c39.8 0 72-32.2 72-72z" />
+                    </svg>
+                    <span>Lucha</span>
+                </li>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M192 104.8c0-9.2-5.8-17.3-13.2-22.8C167.2 73.3 160 61.3 160 48c0-26.5 28.7-48 64-48s64 21.5 64 48c0 13.3-7.2 25.3-18.8 34c-7.4 5.5-13.2 13.6-13.2 22.8c0 12.8 10.4 23.2 23.2 23.2H336c26.5 0 48 21.5 48 48v56.8c0 12.8 10.4 23.2 23.2 23.2c9.2 0 17.3-5.8 22.8-13.2c8.7-11.6 20.7-18.8 34-18.8c26.5 0 48 28.7 48 64s-21.5 64-48 64c-13.3 0-25.3-7.2-34-18.8c-5.5-7.4-13.6-13.2-22.8-13.2c-12.8 0-23.2 10.4-23.2 23.2V464c0 26.5-21.5 48-48 48H279.2c-12.8 0-23.2-10.4-23.2-23.2c0-9.2 5.8-17.3 13.2-22.8c11.6-8.7 18.8-20.7 18.8-34c0-26.5-28.7-48-64-48s-64 21.5-64 48c0 13.3 7.2 25.3 18.8 34c7.4 5.5 13.2 13.6 13.2 22.8c0 12.8-10.4 23.2-23.2 23.2H48c-26.5 0-48-21.5-48-48V343.2C0 330.4 10.4 320 23.2 320c9.2 0 17.3 5.8 22.8 13.2C54.7 344.8 66.7 352 80 352c26.5 0 48-28.7 48-64s-21.5-64-48-64c-13.3 0-25.3 7.2-34 18.8C40.5 250.2 32.4 256 23.2 256C10.4 256 0 245.6 0 232.8V176c0-26.5 21.5-48 48-48H168.8c12.8 0 23.2-10.4 23.2-23.2z" />
+                    </svg>
+                    <span>Ver todas</span>
+                </li>
+            </ul>
+        </aside>
+
+        <article class="w-100 overflow-hidden">
+            <div class="container">
+                <div class="game-container">
+
+                    <section class="fast-action-bar">
+                        <div class="breadcrumb">
+                            <a href="../index.html".html">Inicio</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path
+                                    d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                            </svg>
+                            <a href="../index.html".html">Recomenados para ti</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path
+                                    d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                            </svg>
+                            <a href="4enlinea.html">4 en linea</a>
+                        </div>
+
+                        <div class="fast-action-bar-buttons">
+                            <button class="btn" id="btn-community" title="Comunidad">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                    <path
+                                        d="M184 88c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zM64 245.7C54 256.9 48 271.8 48 288s6 31.1 16 42.3V245.7zm144.4-49.3C178.7 222.7 160 261.2 160 304c0 34.3 12 65.8 32 90.5V416c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V389.2C26.2 371.2 0 332.7 0 288c0-61.9 50.1-112 112-112h32c24 0 46.2 7.5 64.4 20.3zM448 416V394.5c20-24.7 32-56.2 32-90.5c0-42.8-18.7-81.3-48.4-107.7C449.8 183.5 472 176 496 176h32c61.9 0 112 50.1 112 112c0 44.7-26.2 83.2-64 101.2V416c0 17.7-14.3 32-32 32H480c-17.7 0-32-14.3-32-32zM568 88c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm8 157.7v84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM320 160c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64zM240 304c0 16.2 6 31 16 42.3V261.7c-10 11.3-16 26.1-16 42.3zm144-42.3v84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM448 304c0 44.7-26.2 83.2-64 101.2V448c0 17.7-14.3 32-32 32H288c-17.7 0-32-14.3-32-32V405.2c-37.8-18-64-56.5-64-101.2c0-61.9 50.1-112 112-112h32c61.9 0 112 50.1 112 112z" />
+                                </svg>
+                            </button>
+                            <button class="btn" title="Favoritos">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                    <path
+                                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                                </svg>
+                            </button>
+                            <button class="btn" id="btn-share" title="Compartir">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                    <path
+                                        d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.8-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.8 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="game-section">
+                        <img src="../images/4enlinea/container.png" id="container-js" class="none">
+                        <img src="../images/4enlinea/container-green.png" id="container-green-js" class="none">
+                        <img src="../images/4enlinea/bg-game.png" id="bg-game-js" class="none">
+                        <img src="../images/4enlinea/1637671364_preview.webp" id="bg-board-js" class="none">
+                        <div class="game-instructions">
+                            <h1>4 en linea: Game of Thrones</h1>
+                            <div class="d-flex flex-column align-items-center">
+                                <h4>Instrucciones</h4>
+                                <p class="text-justify">
+                                    Al comenzar, ambos jugadores deberan seleccionar la casa a la cual perteneceran y la modalidad de juego (de 2 a 8 en linea). Por
+                                    turnos, los jugadores deben introducir una ficha en la columna que prefieran
+                                    (siempre que no esté completa) y ésta caerá a la posición más baja. Gana la partida
+                                    el primero que consiga alinear la cantidad de fichas correspondientes a la modalidad de juego seleccionada (de 2 a 8) de manera consecutiva. Esta alineacion puede ser en
+                                    horizontal, vertical o diagonal.
+                                </p>
+                            </div>
+                            <button class="btn" id="start-game">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                    <path
+                                        d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
+                                </svg>
+                                Iniciar juego
+                            </button>
+                        </div>
+                        <button id="reset-btn-js" class="none">Reiniciar</button>
+                        <div class="container-selector-tokens open">
+                            <h3 class="w-100 text-center" id="selector-tokens-title">Seleccione su ficha</h3>
+                            <div class="d-flex justify-content-space-around container-tokens1">
+                                <div>
+                                    <h4 class="text-center w-100">Casa Lannister</h4>
+                                    <div>
+                                        <img src="../images/4enlinea/token2_1.png" id="token-2-1-js" class="token selectable-token selected one" >
+                                        <img src="../images/4enlinea/token2_2.png" id="token-2-2-js" class="token selectable-token selected one" >
+                                        <img src="../images/4enlinea/token2_3.png" id="token-2-3-js" class="token selectable-token selected one" >
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-center w-100">Casa Targaryen</h4>
+                                    <div>
+                                        <img src="../images/4enlinea/token1_1.png" id="token-1-1-js" class="token selectable-token selected two" >
+                                        <img src="../images/4enlinea/token1_2.png" id="token-1-2-js" class="token selectable-token selected two" >
+                                        <img src="../images/4enlinea/token1_3.png" id="token-1-3-js" class="token selectable-token selected two" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-space-around container-tokens2 align-items-center">
+                                <img src="../images/4enlinea/token1_3.png" id="selected-token-1" class="token-selected invisible" >
+                                <h2 class="invisible">VS</h2>
+                                <img src="../images/4enlinea/token2_3.png" id="selected-token-2" class="token-selected invisible" >
+                            </div>
+                            <div class="d-flex justify-content-center mt-3 invisible" id="container-play-btn">
+                                <select name="play-mode" id="play-mode">
+                                    <option value="2">2 en linea</option>
+                                    <option value="3">3 en linea</option>
+                                    <option value="4" selected>4 en linea</option>
+                                    <option value="5">5 en linea</option>
+                                    <option value="6">6 en linea</option>
+                                    <option value="7">7 en linea</option>
+                                    <option value="8">8 en linea</option>
+                                </select>
+                                <button id="play-button">Jugar</button>
+                            </div>
+                        </div>
+                        <canvas id="canvas-game" class="none" width="1100px" height="700px"></canvas>
+                    </section>
+
+                    <section class="game-more">
+
+                        <div class="game-info">
+                            <div class="game-general-info">
+                                <div class="game-info-img">
+                                    <img src="../images/gameplay/hbo-game-of-thrones.jpg" alt="game-image">
+                                </div>
+
+                                <div class="game-about">
+                                    <h5>4 en linea</h5>
+                                    <h6>Game of Thrones edition</h6>
+                                    <div class="game-clasification">
+                                        <div class="game-clasification-img">
+                                            <img src="../images/gameplay/everyone.png" alt="game-clasification">
+                                        </div>
+                                        <p>Apto para todas las edades</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="game-description text-justify">
+                                4 en linea (también conocido como Conecta 4 en algunas versiones) es un juego de mesa
+                                para dos
+                                jugadores distribuido por Hasbro, en el que se introducen tokens en un tablero vertical
+                                con el
+                                objetivo de alinear cuatro consecutivas de un mismo color.
+                                En esta nueva edición las tokens de colores cambian por tokens correspondientes a la
+                                casa que
+                                seleccione el jugador. Gana el juego la casa que logre alinear 4 de sus tokens.
+                            </p>
+
+                            <div class="game-develop-info">
+                                <div>
+                                    <p>Desarrollador:</p>
+                                    <a href="https://products.hasbro.com/es-es">Hasbro, Inc.</a>
+                                </div>
+                                <div>
+                                    <p>Editor:</p>
+                                    <a href="https://warnerbrosgames.com/">Warner Bros. Interactive Entertainment,
+                                        Inc.</a>
+                                </div>
+                                <div>
+                                    <p>Franquicia:</p>
+                                    <a href="https://warnerbrosgames.com/game/game-of-thrones-conquest">Game of
+                                        Thrones</a>
+                                </div>
+                                <div>
+                                    <p>Fecha de lanzamiento: 18 sep. 2022</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navigation">
+                            <button class="carousel-previous btn-carousel invisible">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path
+                                        d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+                                </svg>
+                            </button>
+                            <button class="carousel-next btn-carousel">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path
+                                        d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <ul class="carousel carousel-pageable game-carousel">
+                            <li class="card">
+                                <img src="../images/gameplay/Game-of-Thrones-Winter-is-Coming-Kings-Landing.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <!-- <iframe class="w-100 h-100" src="https://www.youtube.com/embed/FWBNHlEWoHU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/1584014180_309797_1584014230_noticia_normal.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/starks.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/targ.png" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/house-lannister-logo-1BD88EA268-seeklogo.com.png" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/Game-of-Thrones-Winter-is-Coming-Kings-Landing.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/1553630018_568973_1553630077_noticia_normal.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/1584014180_309797_1584014230_noticia_normal.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/starks.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/targ.png" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/house-lannister-logo-1BD88EA268-seeklogo.com.png" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/Game-of-Thrones-Winter-is-Coming-Kings-Landing.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/1553630018_568973_1553630077_noticia_normal.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/1584014180_309797_1584014230_noticia_normal.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/starks.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/targ.png" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/house-lannister-logo-1BD88EA268-seeklogo.com.png" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/Game-of-Thrones-Winter-is-Coming-Kings-Landing.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/1553630018_568973_1553630077_noticia_normal.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/1584014180_309797_1584014230_noticia_normal.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/starks.jpg" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/targ.png" alt="game-image">
+                            </li>
+                            <li class="card">
+                                <img src="../images/gameplay/house-lannister-logo-1BD88EA268-seeklogo.com.png" alt="game-image">
+                            </li>
+                        </ul>
+                        <div class="community" id="comunity-js">
+                            <h5>Explora nuestra comunidad</h5>
+
+                            <div class="community-content">
+                                <div class="community-comments">
+                                    <h6>Unete al debate acerca de este titulo</h6>
+                                    <h6 id="comments-counter">46 Comentarios</h6>
+                                    <form>
+                                        <div class="add-comment">
+                                            <div class="user-image">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                </svg>
+                                            </div>
+                                            <input id="add-comment" type="text" placeholder="Añadir un comentario...">
+                                        </div>
+                                        <button type="submit" id="submit-comment" class="none btn">Comentar</button>
+                                    </form>
+                                    <ul>
+                                        <li>
+                                            <div class="user-image">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                </svg>
+                                            </div>
+                                            <div class="comment">
+                                                <h6>Tomás Cepeda</h6>
+                                                <p>Proba agregar un comentario ;)</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="user-image">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                </svg>
+                                            </div>
+                                            <div class="comment">
+                                                <h6>Geronimo Benavidez</h6>
+                                                <p>Juegazo!</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="user-image">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                </svg>
+                                            </div>
+                                            <div class="comment">
+                                                <h6>Juanceto01</h6>
+                                                <p>No gane 1</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="user-image">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                </svg>
+                                            </div>
+                                            <div class="comment">
+                                                <h6>CimoProg14ever</h6>
+                                                <p>Es buenisimo!</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="user-image">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                </svg>
+                                            </div>
+                                            <div class="comment">
+                                                <h6>El vikingo</h6>
+                                                <p>En mi humilde opinion y claro, sin la intencion de ofender a nadie,
+                                                    quisiera expresar que este juego es GOD</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="user-image">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                </svg>
+                                            </div>
+                                            <div class="comment">
+                                                <h6>Rob</h6>
+                                                <p>La casa stark siempre gana</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="user-image">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                </svg>
+                                            </div>
+                                            <div class="comment">
+                                                <h6>AegonVI</h6>
+                                                <p>Team targaryen presente</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="user-image">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                </svg>
+                                            </div>
+                                            <div class="comment">
+                                                <h6>Marce872</h6>
+                                                <p>Buenas graficas (?</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="user-image">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                </svg>
+                                            </div>
+                                            <div class="comment">
+                                                <h6>Gaston_ARG_2020</h6>
+                                                <p>Corre en una GTX3090TI?</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                                <div class="community-shares">
+                                    <h6>Contenido de la comunidad</h6>
+                                    <div class="cards">
+
+                                        <div class="card">
+                                            <div class="card-img">
+                                                <img src="../images/gameplay/1584014180_309797_1584014230_noticia_normal.jpg" alt="image-shared">
+                                            </div>
+                                            <div class="user-share">
+                                                <div class="user-image">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                        <path
+                                                            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                    </svg>
+                                                </div>
+                                                <h6>Juanceto01</h6>
+                                            </div>
+                                        </div>
+
+                                        <div class="card">
+                                            <div class="card-img">
+                                                <img src="../images/gameplay/1366_2000.jpeg" alt="image-shared">
+                                            </div>
+                                            <div class="user-share">
+                                                <div class="user-image">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                        <path
+                                                            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                    </svg>
+                                                </div>
+                                                <h6>Juanceto01</h6>
+                                            </div>
+                                        </div>
+
+                                        <div class="card">
+                                            <div class="card-img">
+                                                <img src="../images/gameplay/5a4c434fda9be446a1c605f93af6040e.jpg" alt="image-shared">
+                                            </div>
+                                            <div class="user-share">
+                                                <div class="user-image">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                        <path
+                                                            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                    </svg>
+                                                </div>
+                                                <h6>Juanceto01</h6>
+                                            </div>
+                                        </div>
+
+                                        <div class="card">
+                                            <div class="card-img">
+                                                <img src="../images/gameplay/od.jpg" alt="image-shared">
+                                            </div>
+                                            <div class="user-share">
+                                                <div class="user-image">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                        <path
+                                                            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                                    </svg>
+                                                </div>
+                                                <h6>Juanceto01</h6>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <footer>
+                <div class="footer-container">
+                    <div class="footer-logo">
+                        <div class="d-flex justify-content-space-between align-items-center w-100">
+                            <a href="../index.html" class="d-flex w-100 align-items-center">
+                                <img class="footer-icon mr-2" src="../images/favicon.png" alt="Logo">
+                                <h5>The Games Suite</h5>
+                            </a>
+                            <button class="auto-scroll-top">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+                            </button>
+                        </div>
+                        <ul>
+                            <li>
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                    <path
+                                        d="M429.6 92.1c4.9-11.9 2.1-25.6-7-34.7s-22.8-11.9-34.7-7l-352 144c-14.2 5.8-22.2 20.8-19.3 35.8s16.1 25.8 31.4 25.8H224V432c0 15.3 10.8 28.4 25.8 31.4s30-5.1 35.8-19.3l144-352z" />
+                                </svg>
+                                Avenida Siempreviva 742, Tandil
+                                Provincia de Buenos Aires, Argentina.
+                            </li>
+                            <li>
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                    <path
+                                        d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+                                </svg>
+                                support@thegamessuite.com
+                            </li>
+                            <li>
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                    <path
+                                        d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
+                                </svg>
+                                +54-1234-654321
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="accordion-header">
+                            <h6>Sobre</h6>
+                            <div>
+                                <svg class="icon" width="19" height="32" viewBox="0 0 19 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.6363 14.2344C18.6519 15.2109 18.6519 16.7969 17.6363 17.7734L4.63625 30.2734C3.62063 31.25 1.97125 31.25 0.955627 30.2734C-0.0599976 29.2969 -0.0599976 27.7109 0.955627 26.7344L12.1194 16L0.963752 5.26562C-0.0518727 4.28906 -0.0518727 2.70312 0.963752 1.72656C1.97938 0.75 3.62875 0.75 4.64438 1.72656L17.6444 14.2266L17.6363 14.2344Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><a href="#">Accesibilidad</a></li>
+                                <li><a href="#">Copyright</a></li>
+                                <li><a href="#">Privacidad</a></li>
+                                <li><a href="#">Aviso Legal</a></li>
+                                <li><a href="#">Licencias</a></li>
+                                <li><a href="#">Contratos con terceros</a></li>
+                                <li><a href="#">Certificaciones</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="social-container">
+                        <div class="accordion-header">
+                            <h6>Social</h6>
+                            <div>
+                                <svg class="icon" width="19" height="32" viewBox="0 0 19 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.6363 14.2344C18.6519 15.2109 18.6519 16.7969 17.6363 17.7734L4.63625 30.2734C3.62063 31.25 1.97125 31.25 0.955627 30.2734C-0.0599976 29.2969 -0.0599976 27.7109 0.955627 26.7344L12.1194 16L0.963752 5.26562C-0.0518727 4.28906 -0.0518727 2.70312 0.963752 1.72656C1.97938 0.75 3.62875 0.75 4.64438 1.72656L17.6444 14.2266L17.6363 14.2344Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="d-flex w-100 justify-content-space-around">
+                                <div>
+                                    <a href="#">
+                                        <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="0.332031" width="40" height="40" rx="20" fill="#25D366" />
+                                            <g clip-path="url(#clip0_129_9799)">
+                                                <path
+                                                    d="M29.0876 11.1832C26.7494 8.85278 23.6356 7.57104 20.3265 7.57104C13.4961 7.57104 7.93806 13.0975 7.93806 19.889C7.93806 22.0586 8.50725 24.1782 9.58984 26.0481L7.83203 32.429L14.4001 30.7145C16.2081 31.6966 18.245 32.2126 20.3209 32.2126H20.3265C27.1512 32.2126 32.832 26.6861 32.832 19.8946C32.832 16.6042 31.4258 13.5136 29.0876 11.1832ZM20.3265 30.1374C18.4738 30.1374 16.6602 29.6436 15.0809 28.7114L14.707 28.4895L10.8119 29.5049L11.8499 25.7262L11.6044 25.3378C10.572 23.7065 10.0307 21.8255 10.0307 19.889C10.0307 14.2461 14.6512 9.65179 20.332 9.65179C23.0831 9.65179 25.6669 10.7171 27.6088 12.6536C29.5508 14.5901 30.745 17.1591 30.7394 19.8946C30.7394 25.5431 26.0017 30.1374 20.3265 30.1374ZM25.9738 22.4692C25.6669 22.3138 24.1434 21.5703 23.8588 21.4704C23.5742 21.365 23.3677 21.3151 23.1613 21.6258C22.9548 21.9365 22.3633 22.6245 22.1791 22.8354C22.0006 23.0407 21.8164 23.0684 21.5095 22.9131C19.6903 22.0086 18.4961 21.2984 17.2963 19.251C16.9782 18.7072 17.6144 18.746 18.2059 17.5697C18.3064 17.3644 18.2561 17.1869 18.178 17.0315C18.0999 16.8761 17.4805 15.3614 17.2238 14.7455C16.9727 14.1462 16.716 14.2294 16.5262 14.2183C16.3477 14.2072 16.1412 14.2072 15.9347 14.2072C15.7282 14.2072 15.3934 14.2849 15.1088 14.5901C14.8242 14.9008 14.0262 15.6443 14.0262 17.1591C14.0262 18.6739 15.1367 20.1387 15.2874 20.344C15.4436 20.5493 17.4693 23.6566 20.5776 24.9938C22.5419 25.8372 23.3119 25.9093 24.2941 25.7651C24.8912 25.6763 26.1244 25.0216 26.3811 24.3002C26.6378 23.5789 26.6378 22.963 26.5597 22.8354C26.4872 22.6967 26.2807 22.619 25.9738 22.4692Z"
+                                                    fill="white" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_129_9799">
+                                                    <rect width="25" height="25" fill="white"
+                                                        transform="translate(7.83203 7.5)" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="#">
+                                        <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="0.332031" width="40" height="40" rx="20" fill="#1DA1F2" />
+                                            <g clip-path="url(#clip0_129_9807)">
+                                                <path
+                                                    d="M30.2622 14.9079C30.2781 15.13 30.2781 15.3521 30.2781 15.5742C30.2781 22.3476 25.1227 30.1522 15.7 30.1522C12.7971 30.1522 10.1004 29.3114 7.83203 27.8521C8.24448 27.8997 8.64102 27.9155 9.06934 27.9155C11.4646 27.9155 13.6696 27.1065 15.4304 25.7265C13.1778 25.6789 11.2901 24.2036 10.6397 22.1731C10.957 22.2207 11.2743 22.2524 11.6074 22.2524C12.0674 22.2524 12.5275 22.189 12.9558 22.078C10.6081 21.602 8.84722 19.5399 8.84722 17.0494V16.986C9.5293 17.3667 10.3225 17.6046 11.1632 17.6363C9.78311 16.7163 8.87896 15.1458 8.87896 13.3692C8.87896 12.4174 9.13271 11.545 9.5769 10.7835C12.0991 13.8927 15.8904 15.9231 20.1416 16.1452C20.0623 15.7645 20.0147 15.368 20.0147 14.9714C20.0147 12.1478 22.299 9.84766 25.1384 9.84766C26.6137 9.84766 27.9461 10.4663 28.8821 11.4657C30.04 11.2436 31.1504 10.8153 32.134 10.2284C31.7532 11.4181 30.9442 12.4175 29.8814 13.052C30.9125 12.941 31.9119 12.6554 32.8319 12.2588C32.1341 13.274 31.2616 14.1782 30.2622 14.9079Z"
+                                                    fill="white" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_129_9807">
+                                                    <rect width="25" height="25" fill="white"
+                                                        transform="translate(7.83203 7.5)" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="#">
+                                        <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="0.332031" width="40" height="40" rx="20"
+                                                fill="url(#paint0_linear_129_9818)" />
+                                            <path
+                                                d="M20.3377 13.6501C16.8543 13.6501 14.0446 16.4828 14.0446 19.9945C14.0446 23.5063 16.8543 26.339 20.3377 26.339C23.8211 26.339 26.6308 23.5063 26.6308 19.9945C26.6308 16.4828 23.8211 13.6501 20.3377 13.6501ZM20.3377 24.1192C18.0866 24.1192 16.2463 22.2695 16.2463 19.9945C16.2463 17.7196 18.0811 15.8698 20.3377 15.8698C22.5942 15.8698 24.429 17.7196 24.429 19.9945C24.429 22.2695 22.5887 24.1192 20.3377 24.1192ZM28.356 13.3906C28.356 14.2133 27.6988 14.8704 26.8882 14.8704C26.0721 14.8704 25.4203 14.2078 25.4203 13.3906C25.4203 12.5734 26.0776 11.9108 26.8882 11.9108C27.6988 11.9108 28.356 12.5734 28.356 13.3906ZM32.524 14.8925C32.4309 12.9102 31.9818 11.1543 30.5414 9.70764C29.1064 8.26096 27.3647 7.80818 25.3984 7.70879C23.3719 7.59284 17.2979 7.59284 15.2714 7.70879C13.3107 7.80266 11.569 8.25544 10.1285 9.70212C8.68806 11.1488 8.24442 12.9047 8.14583 14.887C8.03082 16.93 8.03082 23.0536 8.14583 25.0966C8.23894 27.0789 8.68806 28.8348 10.1285 30.2814C11.569 31.7281 13.3052 32.1809 15.2714 32.2803C17.2979 32.3962 23.3719 32.3962 25.3984 32.2803C27.3647 32.1864 29.1064 31.7336 30.5414 30.2814C31.9763 28.8348 32.4254 27.0789 32.524 25.0966C32.6391 23.0536 32.6391 16.9355 32.524 14.8925ZM29.906 27.2887C29.4788 28.3709 28.6518 29.2047 27.5728 29.6409C25.9571 30.287 22.1232 30.1379 20.3377 30.1379C18.5522 30.1379 14.7128 30.2814 13.1025 29.6409C12.029 29.2102 11.202 28.3765 10.7693 27.2887C10.1285 25.6598 10.2764 21.7946 10.2764 19.9945C10.2764 18.1945 10.134 14.3238 10.7693 12.7004C11.1965 11.6181 12.0236 10.7844 13.1025 10.3482C14.7183 9.70212 18.5522 9.85121 20.3377 9.85121C22.1232 9.85121 25.9626 9.70764 27.5728 10.3482C28.6463 10.7788 29.4733 11.6126 29.906 12.7004C30.5468 14.3293 30.399 18.1945 30.399 19.9945C30.399 21.7946 30.5468 25.6653 29.906 27.2887Z"
+                                                fill="white" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_129_9818" x1="20.332" y1="0" x2="20.332"
+                                                    y2="40" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#505FD4" />
+                                                    <stop offset="0.5" stop-color="#CF2F84" />
+                                                    <stop offset="1" stop-color="#FCD16B" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="accordion-header">
+                            <h6>Ayuda</h6>
+                            <div>
+                                <svg class="icon" width="19" height="32" viewBox="0 0 19 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.6363 14.2344C18.6519 15.2109 18.6519 16.7969 17.6363 17.7734L4.63625 30.2734C3.62063 31.25 1.97125 31.25 0.955627 30.2734C-0.0599976 29.2969 -0.0599976 27.7109 0.955627 26.7344L12.1194 16L0.963752 5.26562C-0.0518727 4.28906 -0.0518727 2.70312 0.963752 1.72656C1.97938 0.75 3.62875 0.75 4.64438 1.72656L17.6444 14.2266L17.6363 14.2344Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Foros</a></li>
+                                <li><a href="#">Centro de Ayuda</a></li>
+                                <li><a href="#">Soporte</a></li>
+                                <li><a href="#">Compras</a></li>
+                                <li><a href="#">Reembolsos</a></li>
+                                <li><a href="#">Pagos </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="accordion-header">
+                            <h6>Categorias</h6>
+                            <div>
+                                <svg class="icon" width="19" height="32" viewBox="0 0 19 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.6363 14.2344C18.6519 15.2109 18.6519 16.7969 17.6363 17.7734L4.63625 30.2734C3.62063 31.25 1.97125 31.25 0.955627 30.2734C-0.0599976 29.2969 -0.0599976 27.7109 0.955627 26.7344L12.1194 16L0.963752 5.26562C-0.0518727 4.28906 -0.0518727 2.70312 0.963752 1.72656C1.97938 0.75 3.62875 0.75 4.64438 1.72656L17.6444 14.2266L17.6363 14.2344Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li><a href="#">Deportes</a></li>
+                                <li><a href="#">Arcade</a></li>
+                                <li><a href="#">Disparos</a></li>
+                                <li><a href="#">Accion</a></li>
+                                <li><a href="#">Aventuras</a></li>
+                                <li><a href="#">RPG</a></li>
+                                <li><a href="#">Carreras</a></li>
+                                <li><a href="#">Infantiles</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-actions w-100 d-flex justify-content-space-between mt-3">
+                    <div></div>
+                    <span>© 2022 - Todos los derechos reservados</span>
+                    <button class="auto-scroll-top">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+                    </button>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+</body>
+
+</html>
