@@ -1575,11 +1575,16 @@ body.estreno .estreno-info div > *, body.estreno .reserve-detail > * {
 }
 
 body.estreno .card {
+    position: relative;
     width: 32.5%;
     background-color: #0B0B0B;
     border-radius: 10px;
     overflow: hidden;
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#characters-title {
+    position: relative;
 }
 
 body.estreno .card .content {

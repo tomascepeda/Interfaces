@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadCartButtons();
     document.querySelector(".button-toggle-nav-menu-js").addEventListener("click", toggleNav);
     reduceHeader();
-    document.addEventListener("scroll", reduceHeader)
+    document.addEventListener("scroll", reduceHeader);
     let autoScrollBtns = document.querySelectorAll(".auto-scroll-top");
     autoScrollBtns.forEach(autoScrollBtn => {
         autoScrollBtn.addEventListener("click", () => {
