@@ -136,6 +136,10 @@ main {
     overflow: hidden;
 }
 
+div.overflow-x-clip {
+    overflow-x: clip;
+}
+
 .w-25 {
     width: 25%;
 }
@@ -1563,11 +1567,8 @@ body.estreno section {
 
 .estreno-info {
     display: flex;
+    height: 100vh;
     justify-content: space-between;
-}
-
-.estreno-info > img, .estreno-info > div {
-    width: 49%;
 }
 
 body.estreno .estreno-info div > *, body.estreno .reserve-detail > * {
@@ -2050,4 +2051,79 @@ body.estreno .carousel-pages div.active {
     padding: 32px;
     border-radius: 5px;
     background-color: var(--color-primary-shadow-2);
+}
+
+#spritesheet-cj {
+    width: 104px;
+    height: 111px;
+    background: url("../images/spritesheets/cj.png");
+    animation-name: spritesheet-cj; 
+    animation-duration: 1.3s;
+    animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+}
+
+#spritesheet-grove-street {
+    width: 108px;
+    height: 115px;
+    background: url("../images/spritesheets/g22.png");
+    animation-name: spritesheet-grove-street; 
+    animation-duration: 1s;
+    animation-timing-function: steps(9);
+    animation-iteration-count: infinite;
+}
+
+@keyframes spritesheet-grove-street {
+    from { background-position: 0px; }
+    to { background-position: -972px; }
+}
+
+@keyframes spritesheet-cj {
+    from { background-position: 0px; }
+    to { background-position: 1040px; }
+}
+
+#parallax-street {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    align-items: flex-end;
+    height: 50px;
+    width: 100%;
+    background: url("../images/spritesheets/street3.png");
+    animation: parallax-street 18s linear infinite;
+}
+
+@keyframes parallax-street {
+    from { background-position: 0px; }
+    to { background-position: -1900px; }
+}
+
+.scroll-animated-left-column {
+    height: 100vh;
+    width: 100%;
+    margin-right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.scroll-animated-left-column img {
+    position: absolute;
+}
+
+.scroll-animated-right-column {
+    width: 100%;
+}
+
+.scroll-animated-right-column div {
+    width: 100%;
+    height: 850px;
+}
+
+.game-sprites-info {
+    margin-bottom: 30px;
 }
