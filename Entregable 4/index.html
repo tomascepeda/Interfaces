@@ -8,7 +8,7 @@
     <title>The Games Suite</title>
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
+    <script src="js/script.js" type="module"></script>
 </head>
 
 <body>
@@ -28,8 +28,8 @@
                 </svg>
             </button>
 
-            <a href="index.html" class="logo">
-                <img class="logo-icon icon-h5" src="images/favicon.png" alt="Logo">
+            <a href="index.html" class="logo" id="logo-resize">
+                <img class="icon-h5" src="images/favicon.png" alt="Logo">
                 <h5>The Games Suite</h5>
             </a>
         </div>
@@ -242,7 +242,8 @@
                                         <path
                                             d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                     </svg>
-                                    Jugar</button>
+                                    <span>Jugar</span>
+                                </button>
                             </a>
                         </li>
                         <li class="card">
@@ -271,7 +272,8 @@
                                         <path
                                             d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
                                     </svg>
-                                    Ver más</button>
+                                    <span>Ver más</span> 
+                                </button>
                             </a>
                         </li>
                         <li class="card">
@@ -286,7 +288,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -300,7 +302,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -330,7 +332,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image" src="images/games/fifa 23.jpg" alt="card-game">
@@ -343,7 +345,7 @@
                                     <path
                                         d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
                                 </svg>
-                                Ver más</button>
+                                <span>Ver más</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image" src="images/games/mejores-juegos-2022-dying-light-2-1638484426.jpg"
@@ -357,7 +359,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -438,7 +440,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image" src="images/games/fifa 23.jpg" alt="card-game">
@@ -451,7 +453,7 @@
                                     <path
                                         d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
                                 </svg>
-                                Ver más</button>
+                                <span>Ver más</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image" src="images/games/mejores-juegos-2022-dying-light-2-1638484426.jpg"
@@ -465,7 +467,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -520,7 +522,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image" src="images/games/mejores-juegos-2022-god-of-war-pc-1642933060.jpg"
@@ -569,7 +571,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -625,7 +627,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image" src="images/games/mejores-juegos-2022-god-of-war-pc-1642933060.jpg"
@@ -653,7 +655,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image" src="images/games/kerbal-space-program-2-1638820027.jpg"
@@ -667,7 +669,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -682,7 +684,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -734,7 +736,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image" src="images/games/mejores-juegos-2022-gran-turismo-7-1638484425.jpg"
@@ -762,7 +764,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image" src="images/games/kerbal-space-program-2-1638820027.jpg"
@@ -776,7 +778,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -791,7 +793,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -835,7 +837,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -850,7 +852,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -864,7 +866,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                     </ul>
                 </section>
@@ -899,7 +901,7 @@
                                     <path
                                         d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
                                 </svg>
-                                Ver más</button>
+                                <span>Ver más</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image" src="images/games/fifa 23.jpg" alt="card-game">
@@ -912,7 +914,7 @@
                                     <path
                                         d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
                                 </svg>
-                                Ver más</button>
+                                <span>Ver más</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image" src="images/games/mejores-juegos-2022-starfield-1638484427.jpg"
@@ -926,7 +928,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -954,7 +956,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -983,7 +985,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -997,7 +999,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image"
@@ -1027,7 +1029,7 @@
                                     <path
                                         d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                 </svg>
-                                Jugar</button>
+                                <span>Jugar</span> </button>
                         </li>
                         <li class="card">
                             <img class="card-image" src="images/games/fifa 23.jpg" alt="card-game">
@@ -1040,7 +1042,7 @@
                                     <path
                                         d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
                                 </svg>
-                                Ver más</button>
+                                <span>Ver más</span> </button>
                         </li>
                     </ul>
                 </section>

@@ -601,10 +601,22 @@ footer button:hover {
 }
 
 footer button svg {
+    position: relative;
+    top: 3px;
     fill: white;
     width: 80%;
     height: 80%;
     transform: rotate(-90deg);
+}
+
+footer button:hover svg{
+    animation: backToTop 1s infinite;
+}
+
+@keyframes backToTop {
+    0% {top: 3px;}
+    50% {top: -9px;}
+    100% {top: 3px;}
 }
 
 .footer-logo ul {
@@ -631,6 +643,9 @@ footer button svg {
 }
 
 .category-title {
+    position: relative;
+    left: -28%;
+    transition: all .3s ease;
     color: white;
     font-size: var(--font-h5-size);
     font-weight: bold;
@@ -906,10 +921,20 @@ button:active {
     
     .logo {
         width: fit-content;
+        flex-direction: column;
+        margin-left: 40px;
+        justify-content: flex-start;
+    }
+
+    .icon-h5 {
+        max-width: none;
+        max-height: none;
     }
 
     .logo img {
         margin: 0 10px 0 0;
+        width: 40px;
+        height: 40px;
     }
 
     nav {
@@ -970,11 +995,6 @@ button:active {
         display: flex;
     }
 
-    .logo {
-        margin-left: 16px;
-        justify-content: flex-start;
-    }
-
     .carousel {
         overflow-x: hidden;
     }
@@ -1015,6 +1035,46 @@ button:active {
         height: 100%;
     }
 
+    .carousel-previous svg, .carousel-next svg{
+        position: relative;
+    }
+
+    .carousel-previous:hover svg {
+        animation: carouselPrevious 1s infinite;
+    }
+
+    .carousel-next:hover svg {
+        animation: carouselNext 1s infinite;
+    }
+
+    .btn-card span {
+        display: none;
+    }
+    
+    .btn-card:hover span {
+        position: relative;
+        display: inherit;
+        font-size: 15px;
+        animation: buttonHomeAnimation .6s ease;
+    }
+    
+    @keyframes buttonHomeAnimation {
+        0% {opacity: 0; left: 32%;}
+        100% {opacity: 1; left: 0px;}
+    }
+
+}
+
+@keyframes carouselPrevious {
+    0% {right: 0px;}
+    50% {right: 20px;}
+    100% {right: 0px;}
+}
+
+@keyframes carouselNext {
+    0% {left: 0px;}
+    50% {left: 20px;}
+    100% {left: 0px;}
 }
 
 @media (min-width: 1130px) {
@@ -1701,6 +1761,26 @@ body.estreno .characters .character-card:hover img {
     text-align: center;
     color: var(--color-estreno-primary);
     font-size: 16px;
+}    
+
+.character-hover:hover p {
+    position: relative;
+    animation: centerCharacterText .4s ease;
+}
+
+.character-hover:hover h6 {
+    position: relative;
+    animation: centerCharacterTitle .4s ease;
+}
+
+@keyframes centerCharacterTitle {
+    0% {bottom: 500px; opacity: 0;}
+    100% {bottom: 0px; opacity: 1;}
+}
+
+@keyframes centerCharacterText {
+    0% {top: 500px; opacity: 0;}
+    100% {top: 0px; opacity: 1;}
 }
 
 body.estreno .reserve .center {
@@ -1841,6 +1921,7 @@ body.estreno .parallax .layer-0 {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    top: -100px;
 }
 
 body.estreno .parallax .layer-0 svg {
@@ -2126,4 +2207,38 @@ body.estreno .carousel-pages div.active {
 
 .game-sprites-info {
     margin-bottom: 30px;
+}
+
+.scroll-downs {
+    width :34px;
+    height: 55px;
+}
+
+.mousey {
+    width: 3px;
+    padding: 10px 15px;
+    height: 35px;
+    border: 5px solid #fff;
+    border-radius: 25px;
+    opacity: 1;
+    box-sizing: content-box;
+}
+
+.scroller {
+    position: relative;
+    width: 5px;
+    left: -1px;
+    height: 10px;
+    border-radius: 25%;
+    background-color: #fff;
+    animation-name: scroll;
+    animation-duration: 2.2s;
+    animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+    animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+    0% { opacity: 0; }
+    10% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(15px); opacity: 0;}
 }

@@ -1,3 +1,5 @@
+import { scrollAnimation } from "./scrollAnimator.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     loading();
     loadAnimatedItemsSidebar();
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
+    animateSectionTitles();
 });
 
 let id = makeCounter();
@@ -38,6 +41,19 @@ function reduceHeader() {
     let percentage = (scroll / (maxScroll / 100)) / 100;
     let headerHeight = (max - (diff * percentage));
     element.style = "height: " + headerHeight + "px";
+
+    let minImg = 28;
+    let maxImg = 40;
+    let imgDiff = maxImg - minImg;
+    let imgHeight = (maxImg - (imgDiff * percentage));
+    let img = document.querySelector(".icon-h5");
+    let logo = document.getElementById("logo-resize");
+    if(imgHeight < maxImg - 5)
+        logo.style.flexDirection = "row";
+    else
+        logo.style.flexDirection = "column";
+    img.style.width = imgHeight + "px";
+    img.style.height = imgHeight + "px";
 
     let sidebar = document.querySelector(".sidebar");
     let sidebarHeight = window.innerHeight - headerHeight;
@@ -77,7 +93,11 @@ function loading() {
                 document.getElementById("main").classList.toggle("none");
                 clearInterval(timeProgress);
             }
-        }, 1);
+            setTimeout(() => {
+                window.scrollBy(0,1);
+                window.scrollBy(0,-1);
+            }, 300);
+        }, 500); // TODO 5000 default
     }
 }
 
@@ -256,4 +276,18 @@ function loadCartButtons() {
             }
         });
     });
+}
+
+function animateSectionTitles() {
+    let titles = document.querySelectorAll(".category-title");
+    if(titles.length > 0) {
+        let leftTitle = 28;
+        let maxTitleAnimation = 250;
+        let animation = (percentage, title) => title.style.left = (leftTitle * -1) + (percentage * leftTitle) + "%";
+        scrollAnimation(titles[0], maxTitleAnimation, animation);
+        scrollAnimation(titles[1], maxTitleAnimation, animation);
+        scrollAnimation(titles[2], maxTitleAnimation, animation);
+        scrollAnimation(titles[3], maxTitleAnimation, animation);
+        scrollAnimation(titles[4], maxTitleAnimation, animation);
+    }
 }
