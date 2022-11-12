@@ -192,9 +192,15 @@ function isPageableCarousel(carousel) {
     return carousel.classList.contains("carousel-pageable");
 }
 
+function isAnimatedCardsCarousel(carousel) {
+    return carousel.classList.contains("animated-cards");
+}
+
 function scrollLeft(btn) {
     let cardWidth = document.querySelector(".carousel .card").clientWidth;
     let carousel = btn.parentElement.nextElementSibling;
+    if (isAnimatedCardsCarousel(carousel))
+        animateCarouselCards(carousel, "left");
     if (isPageableCarousel(carousel)) {
         let carouselInterval = carouselIntervals.get(parseInt(carousel.getAttribute("id")));
         onClickPage(getPreviousPage(carousel), carousel, carouselInterval);
@@ -203,17 +209,29 @@ function scrollLeft(btn) {
         if (carousel.scrollLeft <= (cardWidth * 3)) {
             btn.classList.add("invisible");
         }
-        carousel.scroll({
+        carousel.scroll(({
             left: carousel.scrollLeft - (cardWidth * 3),
             top: 0,
             behavior: 'smooth'
-        });
+        }));
     }
+}
+
+function animateCarouselCards(carousel, leftOrRight) {
+    let carouselCards = carousel.querySelectorAll(".card");
+    let className = `scrolling-${leftOrRight}`;
+    let animationDuration = 600;
+    carouselCards.forEach(card => {
+        card.classList.add(className);
+        setTimeout(() => card.classList.remove(className), animationDuration);
+    });
 }
 
 function scrollRight(btn) {
     let cardWidth = document.querySelector(".carousel .card").clientWidth;
     let carousel = btn.parentElement.nextElementSibling;
+    if (isAnimatedCardsCarousel(carousel))
+        animateCarouselCards(carousel, "right");
     if (isPageableCarousel(carousel)) {
         let carouselInterval = carouselIntervals.get(parseInt(carousel.getAttribute("id")));
         onClickPage(getNextPage(carousel), carousel, carouselInterval);

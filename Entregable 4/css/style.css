@@ -698,6 +698,25 @@ footer button:hover svg{
     background-color: var(--color-primary-light-1);
     border-radius: var(--border-radius-card);
     margin: 0 0.75% 0;
+    /*transform: rotate(0) scale(1);*/
+}
+
+.carousel .card.scrolling-left {
+    animation: card-scrolling-left .6s ease;
+}
+
+.carousel .card.scrolling-right {
+    animation: card-scrolling-right .6s ease;
+}
+
+@keyframes card-scrolling-left {
+    50% {transform: rotate(180deg) scale(0.5);}
+    100% {transform: rotate(360deg) scale(1);}
+}
+
+@keyframes card-scrolling-right {
+    50% {transform: rotate(-180deg) scale(0.5);}
+    100% {transform: rotate(-360deg) scale(1);}
 }
 
 .carousel .card:first-of-type {
