@@ -84,11 +84,22 @@ function loading() {
             document.getElementById("nav").classList.toggle("none");
             document.getElementById("main").classList.toggle("none");
         }
-        setTimeout(() => {
-            window.scrollBy(0,1);
-            window.scrollBy(0,-1);
-        }, 300);
+        onFinishLoading();
     }, 5100); // TODO 5100 default
+}
+
+function onFinishLoading() {
+    setTimeout(() => {
+        window.scrollBy(0,1);
+        window.scrollBy(0,-1);
+    }, 300);
+    let carouselCards = document.querySelectorAll(".carousel .card.loading");
+    carouselCards.forEach(card => {
+        let minTimeToLoadCard = 1000;
+        let maxTimeToLoadCard = 2500;
+        let timeToLoadCard = (Math.random() * (maxTimeToLoadCard - minTimeToLoadCard)) + minTimeToLoadCard;
+        setTimeout(() => card.classList.remove("loading"), timeToLoadCard);
+    });
 }
 
 function loadScrolls() {

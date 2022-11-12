@@ -665,6 +665,31 @@ footer button:hover svg{
     display: none;
 }
 
+.carousel .card.loading {
+    width: 300px;
+    height: 340px;
+    background:
+        linear-gradient(0.25turn, transparent, #FFF, transparent),
+        linear-gradient(#DDD, #DDD),
+        linear-gradient(#DDD, #DDD),
+        linear-gradient(#DDD, #DDD);
+    background-color: #FFF;
+    background-repeat: no-repeat;
+    background-size: 300px 340px, 300px 185px, 230px 25px, 100px 15px;
+    background-position: -300px 0, 0 0, 10px 225px, 10px 260px;
+    animation: loading 1.5s infinite;
+}
+
+.card.loading img, .card.loading div, .card.loading button {
+    display: none;
+}
+
+@keyframes loading {
+  to {
+    background-position: 300px 0, 0 0, 10px 225px, 10px 260px;
+  }
+}
+
 .carousel .card {
     color: white;
     min-width: 300px;
@@ -834,25 +859,6 @@ button:active {
     width: 100vw;
     height: 100vh;
 }
-
-/* .spinner {
-    border: 8px solid rgba(0, 0, 0, 0.3);
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border-left-color: var(--color-secondary-light-1);
-    animation: spin 1s ease infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-} */
 
 #progress {
     margin-top: 1%;
