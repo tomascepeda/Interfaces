@@ -76,29 +76,19 @@ function loadAnimatedItemsSidebar() {
 }
 
 function loading() {
-    let progress = document.getElementById("progress");
-    if (progress) {
-        let i = 0;
-        let timeProgress = setInterval(() => {
-            if (i <= 100)
-                progress.innerHTML = "Cargando " + i++ + "%";
-        }, 48);
-
+    setTimeout(() => {
+        let loading = document.getElementById("loading");
+        if (loading) {
+            loading.classList.toggle("loading");
+            loading.classList.add("none");
+            document.getElementById("nav").classList.toggle("none");
+            document.getElementById("main").classList.toggle("none");
+        }
         setTimeout(() => {
-            let loading = document.getElementById("loading");
-            if (loading) {
-                loading.classList.toggle("loading");
-                loading.classList.add("none");
-                document.getElementById("nav").classList.toggle("none");
-                document.getElementById("main").classList.toggle("none");
-                clearInterval(timeProgress);
-            }
-            setTimeout(() => {
-                window.scrollBy(0,1);
-                window.scrollBy(0,-1);
-            }, 300);
-        }, 500); // TODO 5000 default
-    }
+            window.scrollBy(0,1);
+            window.scrollBy(0,-1);
+        }, 300);
+    }, 5100); // TODO 5100 default
 }
 
 function loadScrolls() {

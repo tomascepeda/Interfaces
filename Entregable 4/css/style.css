@@ -835,7 +835,7 @@ button:active {
     height: 100vh;
 }
 
-.spinner {
+/* .spinner {
     border: 8px solid rgba(0, 0, 0, 0.3);
     width: 80px;
     height: 80px;
@@ -852,7 +852,7 @@ button:active {
     100% {
         transform: rotate(360deg);
     }
-}
+} */
 
 #progress {
     margin-top: 1%;
@@ -2241,4 +2241,104 @@ body.estreno .carousel-pages div.active {
     0% { opacity: 0; }
     10% { transform: translateY(0); opacity: 1; }
     100% { transform: translateY(15px); opacity: 0;}
+}
+
+.loader {
+    position: relative;
+    width: 120px;
+    height: 90px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.loader:before {
+    content: "";
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: var(--color-secondary-light-1);
+    animation: loading-bounce 0.5s ease-in-out infinite alternate;
+}
+
+.loader:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 7px;
+    width: 45px;
+    border-radius: 4px;
+    box-shadow: 0 5px 0 var(--color-secondary-shadow-3), -35px 50px 0 var(--color-secondary-shadow-3), -70px 95px 0 var(--color-secondary-shadow-3);
+    animation: loading-step 1s ease-in-out infinite;
+}
+
+@keyframes loading-bounce {
+    0% { transform: scale(1, 0.7)}
+    40% { transform: scale(0.8, 1.2)}
+    60% { transform: scale(1, 1)}
+    100% { bottom: 140px }
+}
+
+@keyframes loading-step {
+    0% {
+      box-shadow: 0 10px 0 rgba(0,0,0,0),
+                  0 10px 0 var(--color-secondary-shadow-3),
+                -35px 50px 0 var(--color-secondary-shadow-3),
+                -70px 90px 0 var(--color-secondary-shadow-3);
+    }
+    100% {
+      box-shadow: 0 10px 0 var(--color-secondary-shadow-3),
+                -35px 50px 0 var(--color-secondary-shadow-3),
+                -70px 90px 0 var(--color-secondary-shadow-3),
+                -70px 90px 0 rgba(0,0,0,0);
+    }
+}
+
+.loader2{
+    font-size: 48px;
+    color: var(--color-secondary-light-1);
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    position: relative;
+}
+
+.loader2:before{
+    content: '';
+    animation: 5s print linear alternate infinite;
+}
+
+.loader2:after{
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translatey(-45%);
+    width: 2px;
+    height: 1.3em;
+    background: currentColor;
+    opacity: 0.8;
+    animation: 1s blink steps(2) infinite;
+}
+  
+@keyframes blink {
+    0%  { visibility: hidden;}
+    100%  { visibility: visible;}
+}
+
+@keyframes print {
+    0% { content: 'C'}
+    10% { content: 'Ca'}
+    20% { content: 'Car'}
+    30% { content: 'Carg'}
+    40% { content: 'Carga'}
+    50% { content: 'Cargan'}
+    60% { content: 'Cargand'}
+    70% { content: 'Cargando' }
+    80% { content: 'Cargando.'}
+    90% { content: 'Cargando..'}
+    100% { content: 'Cargando...'}
 }
