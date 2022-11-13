@@ -6,3 +6,4 @@ export const WHITE = "#FFFFFF";
 export const TOKEN_RADIUS = 22;
 export const CONTAINERS_WIDTH = 55;
 export const CONTAINERS_HEIGHT = 55;
+export const ENABLE_LOADER = true;

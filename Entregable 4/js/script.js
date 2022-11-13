@@ -1,7 +1,14 @@
 import { scrollAnimation } from "./scrollAnimator.js";
+import { ENABLE_LOADER } from "./Constants.js"
 
 document.addEventListener("DOMContentLoaded", () => {
-    loading();
+    if(ENABLE_LOADER)
+        loading();
+    else {
+        let loading = document.getElementById("loading");
+        removeLoader(loading);
+        onFinishLoading();
+    }
     loadAnimatedItemsSidebar();
     loadScrolls();
     loadCarouselsPageables();
@@ -78,14 +85,17 @@ function loadAnimatedItemsSidebar() {
 function loading() {
     setTimeout(() => {
         let loading = document.getElementById("loading");
-        if (loading) {
-            loading.classList.toggle("loading");
-            loading.classList.add("none");
-            document.getElementById("nav").classList.toggle("none");
-            document.getElementById("main").classList.toggle("none");
-        }
+        if (loading)
+            removeLoader(loading);
         onFinishLoading();
-    }, 5100); // TODO 5100 default
+    }, 5100);
+}
+
+function removeLoader(loading) {
+    loading.classList.toggle("loading");
+    loading.classList.add("none");
+    document.getElementById("nav").classList.toggle("none");
+    document.getElementById("main").classList.toggle("none");
 }
 
 function onFinishLoading() {
