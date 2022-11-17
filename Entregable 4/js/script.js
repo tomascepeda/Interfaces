@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadAccordions();
     loadCartButtons();
     document.querySelector(".button-toggle-nav-menu-js").addEventListener("click", toggleNav);
-    //reduceHeader();
     document.addEventListener("scroll", reduceHeader);
     let autoScrollBtns = document.querySelectorAll(".auto-scroll-top");
     autoScrollBtns.forEach(autoScrollBtn => {
