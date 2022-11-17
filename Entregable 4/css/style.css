@@ -698,7 +698,6 @@ footer button:hover svg{
     background-color: var(--color-primary-light-1);
     border-radius: var(--border-radius-card);
     margin: 0 0.75% 0;
-    /*transform: rotate(0) scale(1);*/
 }
 
 .carousel .card.scrolling-left {
@@ -710,13 +709,13 @@ footer button:hover svg{
 }
 
 @keyframes card-scrolling-left {
-    50% {transform: rotate(180deg) scale(0.5);}
-    100% {transform: rotate(360deg) scale(1);}
+    50% {transform: rotate(25deg) scale(0.7);}
+    100% {transform: rotate(0) scale(1);}
 }
 
 @keyframes card-scrolling-right {
-    50% {transform: rotate(-180deg) scale(0.5);}
-    100% {transform: rotate(-360deg) scale(1);}
+    50% {transform: rotate(-25deg) scale(0.7);}
+    100% {transform: rotate(0) scale(1);}
 }
 
 .carousel .card:first-of-type {
@@ -1908,45 +1907,21 @@ body.estreno .parallax img {
     object-fit: cover;
 }
 
-body.estreno .parallax {
-    background-image: url("../images/estreno/background.png");
-    background-size: cover;
-}
-
-body.estreno .parallax .background, body.estreno .parallax {
+body.estreno .parallax .background {
     width: 100%;
-    position: relative;
     height: 100vh;
 }
 
-body.estreno .layer {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}
-
-body.estreno .parallax .layer-2 {
-    margin-left: 8%;
-    z-index: 2;
-}
-
-body.estreno .parallax .layer-1 {
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
 
 body.estreno .parallax .car {
     margin: 0 0 2% 3%;
 }
 
 body.estreno .parallax .layer-0 {
-    z-index: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    top: -100px;
+    z-index: 20;
+    position: absolute;
+    left: calc(50% - 21px);
+    top: 80%;
 }
 
 body.estreno .parallax .layer-0 svg {
@@ -1960,23 +1935,192 @@ body.estreno .parallax .layer-0 svg.invisible {
 }
 
 body.estreno .parallax .the-rock {
+    z-index: 11;
+    position: absolute;
+    top: 5%;
+    left: 60%;
     width: 401px;
     height: 561px;
 }
 
 body.estreno .parallax .car {
+    display: none;
+    z-index: 9;
+    position: absolute;
+    top: 300px;
     width: 512px;
     height: 215px;
+}
+
+body.estreno .parallax .palm-1 {
+    z-index: 9;
+    position: absolute;
+    height: 550px;
+    width: 350px;
+    top: 20%;
+    left: 2%;
+    transform: rotate(8deg) rotateY(180deg);
+}
+
+body.estreno .parallax .palm-2 {
+    z-index: 9;
+    position: absolute;
+    height: 700px;
+    width: 500px;
+    left: 75%;
+    top: 10%;
+    transform: rotateY(90deg);
+    transform: rotate(15deg);
+}
+
+body.estreno .parallax {
+    background: radial-gradient(circle, rgba(200,0,161,1) 0%, rgba(180,0,170,1) 0%, rgba(72,0,208,1) 100%);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+body.estreno .parallax .sun {
+    z-index: 0;
+    position: absolute;
+    top: 50px;
+    bottom: 450px;
+    left: calc(50% - 200px);
+    width: 400px;
+    height: 400px;
+}
+
+body.estreno .parallax .buildings-1 {
+    width: 100%;
+    height: 150px;
+    z-index: 1;
+    position: absolute;
+    top: 30%;
+}
+
+body.estreno .parallax .buildings-2 {
+    width: 100%;
+    height: 150px;
+    z-index: 2;
+    position: absolute;
+    top: 40%;
+    transform: rotateZ(180deg) rotateY(180deg) perspective(200px) rotateX(-45deg);
+    opacity: 0.6;
+}
+
+body.estreno .parallax .sea {
+    width: 100%;
+    height: 450px;
+    z-index: 1;
+    position: absolute;
+    top: 45%;
+    filter: invert(16%) sepia(99%) saturate(7268%) hue-rotate(305deg) brightness(87%) contrast(102%);
+}
+
+body.estreno .parallax .sea-2 {
+    width: 100%;
+    height: 450px;
+    z-index: 1;
+    position: absolute;
+    top: 45%;
+    opacity: 0.8;
+}
+
+body.estreno .parallax .sun-2 {
+    z-index: 0;
+    position: absolute;
+    top: 320px;
+    left: calc(50% - 300px);
+    width: 600px;
+    height: 400px;
+    transform: rotateZ(180deg) perspective(200px) rotateX(-45deg);
+    opacity: 0.6;
+}
+
+body.estreno .parallax .sand {
+    z-index: 10;
+    position: absolute;
+    top: 68%;
+    width: 120%;
+    height: 300px;
+    filter: invert(16%) sepia(99%) saturate(7268%) hue-rotate(305deg) brightness(87%) contrast(102%);
+}
+
+body.estreno .parallax .sand-2 {
+    z-index: 9;
+    position: absolute;
+    top: 73%;
+    left: -8%;
+    width: 30%;
+    height: 700px;
+    filter: invert(16%) sepia(99%) saturate(7268%) hue-rotate(305deg) brightness(70%) contrast(102%);
+}
+
+body.estreno .parallax .sand-1-2 {
+    z-index: 10;
+    position: absolute;
+    top: 68%;
+    width: 120%;
+    height: 300px;
+    opacity: 0.4;
+}
+
+body.estreno .parallax .sand-2-2 {
+    z-index: 9;
+    position: absolute;
+    top: 73%;
+    left: -8%;
+    width: 30%;
+    height: 700px;
+    opacity: 0.2;
+}
+
+body.estreno .parallax .logo-parallax {
+    z-index: 0;
+    position: absolute;
+    top: 30px;
+    left: 1%;
+    width: 200px;
+    height: 140px;
+}
+
+body.estreno .parallax .parallax-gradient {
+    width: 100%;
+    height: 50px;
+    z-index: 100;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 80%);
+    position: absolute;
+    bottom: 0;
+}
+
+
+body.estreno .parallax .sand img, body.estreno .parallax .sand-1-2 img {
+    object-position: top;
+}
+
+body.estreno .parallax .sun-2 img{
+    object-fit: fill;
 }
 
 body.estreno .parallax .call-to-action {
     width: 320px;
     height: 229px;
+    bottom: 60%;
+    display: none;
+}
+
+.scrolleable {
+    height: 4000px;
 }
 
 body.estreno .parallax .call-to-action button {
     color: white;
     background-color: transparent;
+    backdrop-filter: blur(40px);
     border: 3px solid white;
 }
 
@@ -2021,13 +2165,14 @@ body.estreno .carousel-pages div.active {
         height: 301px;
     }
 
-    body.estreno .parallax .layer-2 {
-        margin: 5% 0 0 8%;
-    }
-
     body.estreno .parallax .call-to-action {
-        width: 480px;
-        height: 343px;
+        position: absolute;
+        z-index: 4;
+        width: 400px;
+        height: 200px;
+        left: calc(50% - 200px);
+        top: 38%;
+        opacity: 0;
     }
 }
 

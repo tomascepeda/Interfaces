@@ -2,20 +2,14 @@ import { scrollAnimation } from "./scrollAnimator.js";
 import { ENABLE_LOADER } from "./Constants.js"
 
 document.addEventListener("DOMContentLoaded", () => {
-    if(ENABLE_LOADER)
-        loading();
-    else {
-        let loading = document.getElementById("loading");
-        removeLoader(loading);
-        onFinishLoading();
-    }
+    loading();
     loadAnimatedItemsSidebar();
     loadScrolls();
     loadCarouselsPageables();
     loadAccordions();
     loadCartButtons();
     document.querySelector(".button-toggle-nav-menu-js").addEventListener("click", toggleNav);
-    reduceHeader();
+    //reduceHeader();
     document.addEventListener("scroll", reduceHeader);
     let autoScrollBtns = document.querySelectorAll(".auto-scroll-top");
     autoScrollBtns.forEach(autoScrollBtn => {
@@ -88,7 +82,7 @@ function loading() {
         if (loading)
             removeLoader(loading);
         onFinishLoading();
-    }, 5100);
+    }, ENABLE_LOADER ? 5100 : 0);
 }
 
 function removeLoader(loading) {
@@ -105,8 +99,8 @@ function onFinishLoading() {
     }, 300);
     let carouselCards = document.querySelectorAll(".carousel .card.loading");
     carouselCards.forEach(card => {
-        let minTimeToLoadCard = 1000;
-        let maxTimeToLoadCard = 2500;
+        let minTimeToLoadCard = 500;
+        let maxTimeToLoadCard = 3000;
         let timeToLoadCard = (Math.random() * (maxTimeToLoadCard - minTimeToLoadCard)) + minTimeToLoadCard;
         setTimeout(() => card.classList.remove("loading"), timeToLoadCard);
     });
@@ -163,10 +157,6 @@ function autoScroll(carousel) {
     else
         onClickPage(currentPage+1, carousel);
         
-}
-
-function insertAfter(newNode, referenceNode) {
-    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
 function onClickPage(pageNum, carousel, interval = false) {

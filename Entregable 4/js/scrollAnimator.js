@@ -1,6 +1,6 @@
-let scrollAnimation = (element, scrollValue, onAnimate) => {
+let scrollAnimation = (element, scrollValue, onAnimate, elementOnScreen = "end") => {
     document.addEventListener("scroll", () => {
-        let elementPosition = element.getBoundingClientRect().top - window.innerHeight;
+        let elementPosition = elementOnScreen === "end" ? element.getBoundingClientRect().top - window.innerHeight : element.getBoundingClientRect().top;
         let isElementOnScreen = elementPosition < 0;
         if (!isElementOnScreen) {
             onAnimate(0, element);
