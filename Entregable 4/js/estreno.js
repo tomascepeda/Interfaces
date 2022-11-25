@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     parallax.addEventListener("mousemove", cursorParallax)
 
     let scrollParallax = document.querySelector(".scrolleable");
+    let carouselCharacters = document.querySelector("ul.characters");
+    scrollAnimation(carouselCharacters, 300, (percentage) => carouselCharacters.style.paddingTop = (percentage * -300 + 300) + "px");
     scrollAnimation(scrollParallax, scrollParallax.clientHeight - parallax.clientHeight, (percentage) => {
         let o = percentage;
         let navHeightInPx = document.getElementById("nav").clientHeight;

@@ -1915,9 +1915,78 @@ body.estreno .parallax .background {
     height: 100vh;
 }
 
+body.estreno .parallax .heli-1 {
+    position: absolute;
+    z-index: 1;
+    top: 23%;
+    left: 95%;
+    width: 100px;
+    height: 30px;
+    transform: rotateY(180deg);
+    animation: heliFlight 25s infinite linear;
+}
 
-body.estreno .parallax .car {
-    margin: 0 0 2% 3%;
+body.estreno .parallax .light-1 {
+    position: absolute;
+    z-index: -1;
+    top: 80%;
+    left: 60%;
+    width: 0; 
+    height: 0; 
+    opacity: 0.5;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;          
+    border-bottom: 200px solid white;
+    transform: rotate(-25deg);
+    transform-origin: top center;
+    animation: light1Move 2s linear infinite;
+}
+
+@keyframes light1Move {
+    0% {transform: rotate(-25deg);}
+    50% {transform: rotate(-0deg);}
+    100% {transform: rotate(-25deg);}
+}
+
+@keyframes heliFlight {
+    0% {top: 23%; left: 150%;}
+    25% {top: 25%;}
+    50% {top: 18%;}
+    75% {top: 25%;}
+    100% {top: 23%; left: -10%;}
+}
+
+body.estreno .parallax .heli-2 {
+    position: absolute;
+    z-index: 1;
+    top: 23%;
+    width: 100px;
+    height: 30px;
+    animation: heli2Flight 20s infinite linear;
+}
+
+body.estreno .parallax .light-2 {
+    position: absolute;
+    z-index: -1;
+    top: 80%;
+    left: 60%;
+    width: 0; 
+    height: 0; 
+    opacity: 0.5;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;          
+    border-bottom: 200px solid white;
+    transform: rotate(-25deg);
+    transform-origin: top center;
+    animation: light1Move 4s linear infinite;
+}
+
+@keyframes heli2Flight {
+    0% {top: 23%; left: -10%;}
+    25% {top: 18%;}
+    50% {top: 25%;}
+    75% {top: 18%;}
+    100% {top: 23%; left: 210%;}
 }
 
 body.estreno .parallax .the-rock {
@@ -1981,17 +2050,20 @@ body.estreno .parallax .sun {
 }
 
 body.estreno .parallax .buildings-1 {
-    width: 100%;
+    width: 110%;
+    left: -5%;
     height: 150px;
-    z-index: 1;
+    z-index: 2;
     position: absolute;
-    top: 30%;
+    top: 26%;
+    left: -10%;
 }
 
 body.estreno .parallax .buildings-2 {
-    width: 100%;
+    width: 145%;
+    left: -24%;
     height: 150px;
-    z-index: 2;
+    z-index: 3;
     position: absolute;
     top: 40%;
     transform: rotateZ(180deg) rotateY(180deg) perspective(200px) rotateX(-45deg);
@@ -2066,7 +2138,7 @@ body.estreno .parallax .sand-2-2 {
 }
 
 body.estreno .parallax .logo-parallax {
-    z-index: 0;
+    z-index: 11;
     position: absolute;
     top: 30px;
     left: 1%;
@@ -2153,7 +2225,7 @@ body.estreno .carousel-pages div.active {
 
     body.estreno .parallax .call-to-action {
         position: absolute;
-        z-index: 4;
+        z-index: 11;
         width: 400px;
         height: 200px;
         left: calc(50% - 200px);
@@ -2163,6 +2235,17 @@ body.estreno .carousel-pages div.active {
 }
 
 @media (min-width: 1800px) {
+    body.estreno .parallax .buildings-1 {
+        width: 110%;
+        left: -5%;
+        top: 30%;
+    }
+    
+    body.estreno .parallax .buildings-2 {
+        width: 145%;
+        left: -24%;
+    }
+
     body.estreno .characters .character-card span {
         font-size: 60px;
     }
