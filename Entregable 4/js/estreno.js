@@ -59,12 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
             percentage *= 3;
             logo.style.transform = setProperty(logo, "scale", 1 + percentage);
             logo.style.transform = setProperty(logo, "translateY", ((percentage / 4) * 100) + "px");
-            h1.style.opacity = 0;
-            h1.style.display = "none";
-        } else {
             h1.style.display = "inherit";
-            percentage -= 0.666;
-            percentage *= 3;
+            percentage /= 2;
+            h1.style.opacity = percentage;
+        } else {
             h1.style.opacity = percentage + 0.3;
         }
     }, "start");

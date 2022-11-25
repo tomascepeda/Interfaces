@@ -36,29 +36,30 @@ function reduceHeader() {
     let maxScroll = 200;
     let diff = max - min;
     let element = document.querySelector("#nav");
-    let scroll = window.scrollY < 0 ? 0 : window.scrollY;
+    let scroll = window.scrollY < 0 ? 0 : Math.floor(window.scrollY);
     scroll = scroll > maxScroll ? maxScroll : scroll;
     let percentage = (scroll / (maxScroll / 100)) / 100;
-    let headerHeight = (max - (diff * percentage));
-    element.style = "height: " + headerHeight + "px";
+    let headerHeight = Math.floor((max - (diff * percentage)));
+    if(headerHeight != element.clientHeight) {
+        element.style = "height: " + headerHeight + "px";
+        let minImg = 28;
+        let maxImg = 40;
+        let imgDiff = maxImg - minImg;
+        let imgHeight = (maxImg - (imgDiff * percentage));
+        let img = document.querySelector(".icon-h5");
+        let logo = document.getElementById("logo-resize");
+        if(imgHeight < maxImg - 5)
+            logo.style.flexDirection = "row";
+        else
+            logo.style.flexDirection = "column";
+        img.style.width = imgHeight + "px";
+        img.style.height = imgHeight + "px";
 
-    let minImg = 28;
-    let maxImg = 40;
-    let imgDiff = maxImg - minImg;
-    let imgHeight = (maxImg - (imgDiff * percentage));
-    let img = document.querySelector(".icon-h5");
-    let logo = document.getElementById("logo-resize");
-    if(imgHeight < maxImg - 5)
-        logo.style.flexDirection = "row";
-    else
-        logo.style.flexDirection = "column";
-    img.style.width = imgHeight + "px";
-    img.style.height = imgHeight + "px";
-
-    let sidebar = document.querySelector(".sidebar");
-    let sidebarHeight = window.innerHeight - headerHeight;
-    sidebar.style.top = headerHeight + "px";
-    sidebar.style.height = sidebarHeight + "px";
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarHeight = window.innerHeight - headerHeight;
+        sidebar.style.top = headerHeight + "px";
+        sidebar.style.height = sidebarHeight + "px";
+    }
 }
     
 
