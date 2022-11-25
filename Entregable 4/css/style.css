@@ -2055,7 +2055,7 @@ body.estreno .parallax .buildings-1 {
     height: 150px;
     z-index: 2;
     position: absolute;
-    top: 26%;
+    top: 28%;
     left: -10%;
 }
 
@@ -2165,10 +2165,14 @@ body.estreno .parallax .sun-2 img{
 }
 
 body.estreno .parallax .call-to-action {
-    width: 320px;
-    height: 229px;
-    bottom: 60%;
+    position: absolute;
     display: none;
+    z-index: 11;
+    width: 400px;
+    height: 200px;
+    left: calc(50% - 200px);
+    top: 38%;
+    opacity: 0;
 }
 
 .scrolleable {
@@ -2223,15 +2227,6 @@ body.estreno .carousel-pages div.active {
         height: 301px;
     }
 
-    body.estreno .parallax .call-to-action {
-        position: absolute;
-        z-index: 11;
-        width: 400px;
-        height: 200px;
-        left: calc(50% - 200px);
-        top: 38%;
-        opacity: 0;
-    }
 }
 
 @media (min-width: 1800px) {
