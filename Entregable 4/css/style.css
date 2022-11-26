@@ -966,7 +966,7 @@ button:active {
     }
 
     nav {
-        height: 9vh;
+        height: 82px;
         justify-content: space-between;
         z-index: 10;
     }
@@ -2012,7 +2012,7 @@ body.estreno .parallax .palm-1 {
     position: absolute;
     height: 550px;
     width: 350px;
-    top: 20%;
+    top: 26%;
     left: 2%;
     transform: rotate(8deg) rotateY(180deg);
 }
@@ -2111,7 +2111,7 @@ body.estreno .parallax .sand {
 body.estreno .parallax .sand-2 {
     z-index: 9;
     position: absolute;
-    top: 73%;
+    top: 80%;
     left: -8%;
     width: 30%;
     height: 700px;
@@ -2130,7 +2130,7 @@ body.estreno .parallax .sand-1-2 {
 body.estreno .parallax .sand-2-2 {
     z-index: 9;
     position: absolute;
-    top: 73%;
+    top: 80%;
     left: -8%;
     width: 30%;
     height: 700px;

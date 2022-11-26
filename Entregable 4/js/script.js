@@ -31,8 +31,8 @@ function toggleNav() {
 }
 
 function reduceHeader() {
-    let min = 55;
-    let max = 84;
+    let min = 52;
+    let max = 82;
     let maxScroll = 200;
     let diff = max - min;
     let element = document.querySelector("#nav");
@@ -40,7 +40,8 @@ function reduceHeader() {
     scroll = scroll > maxScroll ? maxScroll : scroll;
     let percentage = (scroll / (maxScroll / 100)) / 100;
     let headerHeight = Math.floor((max - (diff * percentage)));
-    if(headerHeight != element.clientHeight) {
+    let actualHeight = element.clientHeight;
+    if(headerHeight != actualHeight && headerHeight != actualHeight+1 && headerHeight != actualHeight-1) {
         element.style = "height: " + headerHeight + "px";
         let minImg = 28;
         let maxImg = 40;
